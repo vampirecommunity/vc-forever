@@ -38,8 +38,8 @@
 
 ```
 vc-forever/
-├── index.html        — входная страница: подтверждение 18+ и ссылка «Войти на Сайт» → start.html
-├── start.html        — главная сайта: боковое меню (#sidebar > ol#nav) + контент, стиль css/5.css
+├── index.html        — входная страница: подтверждение 18+ и ссылка «Войти на Сайт» → home.html
+├── home.html         — главная сайта: боковое меню (#sidebar > ol#nav) + контент, стиль css/5.css
 ├── mainmenu.html     — фрагмент меню (css/6.css), используется как вставка
 ├── forum.html        — страница-переход: meta-refresh на community.html
 ├── css/              — 10 файлов стилей, подключаются как css/N.css
@@ -71,8 +71,8 @@ vc-forever/
 | `redactor_*.html` | 24 | «Статьи / сортировка» по редакторам |
 | `source_*.html` | 16 | «Статьи / сортировка» по источникам (внешние сайты и сообщества) |
 | `section_*.html` | 15 | «Статьи / сортировка» по разделам: `blood`, `donors`, `energy`, `sangs`, `somn`, `sleep`, `style`, `socio`, `seekers`… |
-| `research_*`, `r1_*`–`r3_*` | 26 | исследования: `research.html`, `research_FAQ`, описания типов (`ENFJ`, `ENFP`, `INFP`, `INTJ`), `research_results` и три волны результатов (`r1_*` — первые, `r2_*` — вторые, `r3_*` — третьи) |
-| прочее | 32 | отдельные страницы: `about_VC`, `archive`, `art`, `banner_ex`, `calendarium`, `community`, `contact`, `copyright`, `discord-tests`, `download`, `enter`, `enter_chat`, `example`, `forum`, `glossary`, `index`, `jabber`, `links`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `responsibility`, `sigil`, `society`, `start`, `support`, `testpage`, `translator`, `understanding_VC`, `vampshop`, `VC_jabber_FAQ` |
+| `research_*`, `r1_*`–`r3_*` | 26 | исследования: `research.html`, `research_faq`, описания типов (`ENFJ`, `ENFP`, `INFP`, `INTJ`), `research_results` и три волны результатов (`r1_*` — первые, `r2_*` — вторые, `r3_*` — третьи) |
+| прочее | 32 | отдельные страницы: `about_vc`, `archive`, `art`, `banner_ex`, `calendarium`, `community`, `contact`, `copyright`, `discord-tests`, `download`, `enter`, `enter_chat`, `example`, `forum`, `glossary`, `index`, `jabber`, `links`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `responsibility`, `sigil`, `society`, `start`, `support`, `testpage`, `translator`, `understanding_vc`, `vampshop`, `vc_jabber_faq` |
 
 Совпадение по сумме: 385 + 104 + 61 + 60 + 35 + 24 + 16 + 15 + 26 + 32 = 758.
 
@@ -82,20 +82,22 @@ vc-forever/
   у каждой страницы свой подключаемый стиль — `<link rel="stylesheet" href="css/N.css">`.
 - Разметка историческая: `<center>`, `<font>`, inline-стили. Рефакторить только осознанно,
   чтобы не поехала вёрстка остальных страниц.
-- Навигация — боковое меню `ol#nav` в `#sidebar` (пример: `start.html`), плюс фрагмент `mainmenu.html`.
+- Навигация — боковое меню `ol#nav` в `#sidebar` (пример: `home.html`), плюс фрагмент `mainmenu.html`.
 - Раздел «Статьи» держится на перекрёстных индексах-«сортировках»: по авторам (`articles_*`),
   редакторам (`redactor_*`), переводчикам (`translate_*`), источникам (`source_*`) и разделам (`section_*`).
 - Новая статья = файл `a<следующий номер>_<краткое_имя>.html` в корне (последняя на 25.09.2026 —
   `a383_vc_history_origins.html`), плюс ссылка в `articles_LIST` (блок «Новинки» и сводный список
   раздела) и запись в журнале обновлений `articles_UPDATES`. Листинг `articles_SORT` при добавлении
   статей не обновляется.
+- Имена страниц — в нижнем регистре (`home.html`, `about_vc.html`, `translate_marcus.html`); исключение —
+  три индекс-страницы раздела «Статьи»: `articles_LIST`, `articles_SORT`, `articles_UPDATES`.
 
 ### Чего в этой копии нет
 
 - **Форума** — он живёт отдельно (PHP + база данных) и в публичную копию не входит. На живой форум
   ссылаются **8 страниц** абсолютными адресами вида `https://vampirecommunity.ru/forum/index.php…`
   (`a353_batenka_transformer.html`, `a364_ria_news.html`, `art.html`, `community.html`,
-  `research.html`, `research_results.html`, `start.html`, а также `archive.html` — на старый
+  `research.html`, `research_results.html`, `home.html`, а также `archive.html` — на старый
   `vampirecommunity.forumbb.ru`), поэтому локально такие ссылки ведут на живой сайт, а не в
   локальную папку. Ещё `mainmenu.html` ведёт на локальный `forum.html` (meta-refresh на
   `community.html`), а `a18_blood_und.html` и `a374_ovc_history_sangs_vs_energo.html` — на чужие
