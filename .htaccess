@@ -4,8 +4,8 @@ AddType application/x-httpd-php .html
 
 # --- 301-редиректы на актуальные адреса (добавлено 13.10.2026) ---
 # Старые адреса страниц перенаправляются на текущие файлы: перенос статей в каталог
-# articles/, перенос страниц исследования в каталог research/, приведение имён
-# страниц к lowercase, переименования по никам.
+# articles/, перенос страниц исследования в каталог research/, перенос страниц творчества
+# в каталог art/, приведение имён страниц к lowercase, переименования по никам.
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
 
 # 1) статьи вынесены в каталог articles/
@@ -418,7 +418,106 @@ Redirect permanent /r3_vampire.html /research/r3_vampire.html
 Redirect permanent /research.html /research/research.html
 Redirect permanent /research_results.html /research/research_results.html
 
-# 3) имена страниц приведены к lowercase (в т.ч. start.html -> home.html)
+# 3) страницы творчества вынесены в каталог art/
+Redirect permanent /art.html /art/art.html
+Redirect permanent /art10_derdian.html /art/art10_derdian.html
+Redirect permanent /art10_derdian_poetry.html /art/art10_derdian_poetry.html
+Redirect permanent /art10_derdian_prose.html /art/art10_derdian_prose.html
+Redirect permanent /art11_nemesis.html /art/art11_nemesis.html
+Redirect permanent /art11_nemesis_poetry.html /art/art11_nemesis_poetry.html
+Redirect permanent /art12_bagdin.html /art/art12_bagdin.html
+Redirect permanent /art12_bagdin_pictures.html /art/art12_bagdin_pictures.html
+Redirect permanent /art13_julia.html /art/art13_julia.html
+Redirect permanent /art13_julia_poetry.html /art/art13_julia_poetry.html
+Redirect permanent /art1_armagoandante.html /art/art1_armagoandante.html
+Redirect permanent /art1_armagoandante_poetry.html /art/art1_armagoandante_poetry.html
+Redirect permanent /art1_armagoandante_prose.html /art/art1_armagoandante_prose.html
+Redirect permanent /art2_gloria.html /art/art2_gloria.html
+Redirect permanent /art2_gloria_poetry.html /art/art2_gloria_poetry.html
+Redirect permanent /art2_gloria_prose.html /art/art2_gloria_prose.html
+Redirect permanent /art3_nicole.html /art/art3_nicole.html
+Redirect permanent /art3_nicole_poetry.html /art/art3_nicole_poetry.html
+Redirect permanent /art3_nicole_prose.html /art/art3_nicole_prose.html
+Redirect permanent /art4_daniel.html /art/art4_daniel.html
+Redirect permanent /art4_daniel_poetry.html /art/art4_daniel_poetry.html
+Redirect permanent /art4_daniel_prose.html /art/art4_daniel_prose.html
+Redirect permanent /art5_iennifer.html /art/art5_iennifer.html
+Redirect permanent /art5_iennifer_photo.html /art/art5_iennifer_photo.html
+Redirect permanent /art5_iennifer_poetry.html /art/art5_iennifer_poetry.html
+Redirect permanent /art6_asn.html /art/art6_asn.html
+Redirect permanent /art6_asn_prose.html /art/art6_asn_prose.html
+Redirect permanent /art7_angelsapphire.html /art/art7_angelsapphire.html
+Redirect permanent /art7_angelsapphire_poetry.html /art/art7_angelsapphire_poetry.html
+Redirect permanent /art8_vestala.html /art/art8_vestala.html
+Redirect permanent /art8_vestala_poetry.html /art/art8_vestala_poetry.html
+Redirect permanent /art9_smertoyagodka.html /art/art9_smertoyagodka.html
+Redirect permanent /art9_smertoyagodka_photo.html /art/art9_smertoyagodka_photo.html
+Redirect permanent /art9_smertoyagodka_pictures.html /art/art9_smertoyagodka_pictures.html
+Redirect permanent /art9_smertoyagodka_poetry.html /art/art9_smertoyagodka_poetry.html
+Redirect permanent /art9_smertoyagodka_prose.html /art/art9_smertoyagodka_prose.html
+Redirect permanent /compilation1_mystic_autumn.html /art/compilation1_mystic_autumn.html
+Redirect permanent /compilation1_work1.html /art/compilation1_work1.html
+Redirect permanent /compilation1_work10.html /art/compilation1_work10.html
+Redirect permanent /compilation1_work2.html /art/compilation1_work2.html
+Redirect permanent /compilation1_work3.html /art/compilation1_work3.html
+Redirect permanent /compilation1_work4.html /art/compilation1_work4.html
+Redirect permanent /compilation1_work5.html /art/compilation1_work5.html
+Redirect permanent /compilation1_work6.html /art/compilation1_work6.html
+Redirect permanent /compilation1_work7.html /art/compilation1_work7.html
+Redirect permanent /compilation1_work8.html /art/compilation1_work8.html
+Redirect permanent /compilation1_work9.html /art/compilation1_work9.html
+Redirect permanent /compilation2_legend.html /art/compilation2_legend.html
+Redirect permanent /compilation2_work1.html /art/compilation2_work1.html
+Redirect permanent /compilation2_work2.html /art/compilation2_work2.html
+Redirect permanent /compilation2_work3.html /art/compilation2_work3.html
+Redirect permanent /compilation2_work4.html /art/compilation2_work4.html
+Redirect permanent /compilation2_work5.html /art/compilation2_work5.html
+Redirect permanent /compilation2_work6.html /art/compilation2_work6.html
+Redirect permanent /compilation3_awakening.html /art/compilation3_awakening.html
+Redirect permanent /compilation4_heroes.html /art/compilation4_heroes.html
+Redirect permanent /compilation4_work1.html /art/compilation4_work1.html
+Redirect permanent /compilation4_work2.html /art/compilation4_work2.html
+Redirect permanent /compilation4_work3.html /art/compilation4_work3.html
+Redirect permanent /compilation5_shadows_of_life.html /art/compilation5_shadows_of_life.html
+Redirect permanent /compilation5_work1.html /art/compilation5_work1.html
+Redirect permanent /compilation5_work2.html /art/compilation5_work2.html
+Redirect permanent /compilation5_work3.html /art/compilation5_work3.html
+Redirect permanent /compilation5_work4.html /art/compilation5_work4.html
+Redirect permanent /compilation5_work5.html /art/compilation5_work5.html
+Redirect permanent /compilation5_work6.html /art/compilation5_work6.html
+Redirect permanent /compilation5_work7.html /art/compilation5_work7.html
+Redirect permanent /compilation6_scary_story.html /art/compilation6_scary_story.html
+Redirect permanent /compilation6_work1.html /art/compilation6_work1.html
+Redirect permanent /compilation6_work2.html /art/compilation6_work2.html
+Redirect permanent /compilation6_work3.html /art/compilation6_work3.html
+Redirect permanent /compilation6_work4.html /art/compilation6_work4.html
+Redirect permanent /compilation6_work5.html /art/compilation6_work5.html
+Redirect permanent /compilation6_work6.html /art/compilation6_work6.html
+Redirect permanent /compilation6_work7.html /art/compilation6_work7.html
+Redirect permanent /compilation7_thoughts_of_spring.html /art/compilation7_thoughts_of_spring.html
+Redirect permanent /compilation7_work1.html /art/compilation7_work1.html
+Redirect permanent /compilation7_work2.html /art/compilation7_work2.html
+Redirect permanent /compilation7_work3.html /art/compilation7_work3.html
+Redirect permanent /compilation7_work4.html /art/compilation7_work4.html
+Redirect permanent /compilation8_miracle.html /art/compilation8_miracle.html
+Redirect permanent /compilation8_work1.html /art/compilation8_work1.html
+Redirect permanent /compilation8_work2.html /art/compilation8_work2.html
+Redirect permanent /compilation8_work3.html /art/compilation8_work3.html
+Redirect permanent /compilation9_lord.html /art/compilation9_lord.html
+Redirect permanent /compilation9_work1.html /art/compilation9_work1.html
+Redirect permanent /compilation9_work10.html /art/compilation9_work10.html
+Redirect permanent /compilation9_work2.html /art/compilation9_work2.html
+Redirect permanent /compilation9_work3.html /art/compilation9_work3.html
+Redirect permanent /compilation9_work4.html /art/compilation9_work4.html
+Redirect permanent /compilation9_work5.html /art/compilation9_work5.html
+Redirect permanent /compilation9_work6.html /art/compilation9_work6.html
+Redirect permanent /compilation9_work7.html /art/compilation9_work7.html
+Redirect permanent /compilation9_work8.html /art/compilation9_work8.html
+Redirect permanent /compilation9_work9.html /art/compilation9_work9.html
+Redirect permanent /compilation_scary_story.html /art/compilation_scary_story.html
+Redirect permanent /compilation_thoughts_of_spring.html /art/compilation_thoughts_of_spring.html
+
+# 4) имена страниц приведены к lowercase (в т.ч. start.html -> home.html)
 Redirect permanent /VC_jabber_FAQ.html /vc_jabber_faq.html
 Redirect permanent /a117_interview_to_RR.html /articles/a117_interview_to_rr.html
 Redirect permanent /a123_interview_to_AiF.html /articles/a123_interview_to_aif.html
@@ -438,33 +537,33 @@ Redirect permanent /a358_VC_person_types.html /articles/a358_vc_person_types.htm
 Redirect permanent /a361_create_TV_show.html /articles/a361_create_tv_show.html
 Redirect permanent /a79_ethical_VC.html /articles/a79_ethical_vc.html
 Redirect permanent /about_VC.html /about_vc.html
-Redirect permanent /art11_Nemesis.html /art11_nemesis.html
-Redirect permanent /art11_Nemesis_poetry.html /art11_nemesis_poetry.html
-Redirect permanent /art12_BaGDiN.html /art12_bagdin.html
-Redirect permanent /art12_BaGDiN_pictures.html /art12_bagdin_pictures.html
-Redirect permanent /art13_Julia.html /art13_julia.html
-Redirect permanent /art13_Julia_poetry.html /art13_julia_poetry.html
-Redirect permanent /art1_ArmagoAndante.html /art1_armagoandante.html
-Redirect permanent /art1_ArmagoAndante_poetry.html /art1_armagoandante_poetry.html
-Redirect permanent /art1_ArmagoAndante_prose.html /art1_armagoandante_prose.html
-Redirect permanent /art2_Gloria.html /art2_gloria.html
-Redirect permanent /art2_Gloria_poetry.html /art2_gloria_poetry.html
-Redirect permanent /art2_Gloria_prose.html /art2_gloria_prose.html
-Redirect permanent /art3_Nicole.html /art3_nicole.html
-Redirect permanent /art3_Nicole_poetry.html /art3_nicole_poetry.html
-Redirect permanent /art3_Nicole_prose.html /art3_nicole_prose.html
-Redirect permanent /art4_Daniel.html /art4_daniel.html
-Redirect permanent /art4_Daniel_poetry.html /art4_daniel_poetry.html
-Redirect permanent /art4_Daniel_prose.html /art4_daniel_prose.html
-Redirect permanent /art5_Iennifer.html /art5_iennifer.html
-Redirect permanent /art5_Iennifer_photo.html /art5_iennifer_photo.html
-Redirect permanent /art5_Iennifer_poetry.html /art5_iennifer_poetry.html
-Redirect permanent /art6_AsN.html /art6_asn.html
-Redirect permanent /art6_AsN_prose.html /art6_asn_prose.html
-Redirect permanent /art7_AngelSapphire.html /art7_angelsapphire.html
-Redirect permanent /art7_AngelSapphire_poetry.html /art7_angelsapphire_poetry.html
-Redirect permanent /art8_Vestala.html /art8_vestala.html
-Redirect permanent /art8_Vestala_poetry.html /art8_vestala_poetry.html
+Redirect permanent /art11_Nemesis.html /art/art11_nemesis.html
+Redirect permanent /art11_Nemesis_poetry.html /art/art11_nemesis_poetry.html
+Redirect permanent /art12_BaGDiN.html /art/art12_bagdin.html
+Redirect permanent /art12_BaGDiN_pictures.html /art/art12_bagdin_pictures.html
+Redirect permanent /art13_Julia.html /art/art13_julia.html
+Redirect permanent /art13_Julia_poetry.html /art/art13_julia_poetry.html
+Redirect permanent /art1_ArmagoAndante.html /art/art1_armagoandante.html
+Redirect permanent /art1_ArmagoAndante_poetry.html /art/art1_armagoandante_poetry.html
+Redirect permanent /art1_ArmagoAndante_prose.html /art/art1_armagoandante_prose.html
+Redirect permanent /art2_Gloria.html /art/art2_gloria.html
+Redirect permanent /art2_Gloria_poetry.html /art/art2_gloria_poetry.html
+Redirect permanent /art2_Gloria_prose.html /art/art2_gloria_prose.html
+Redirect permanent /art3_Nicole.html /art/art3_nicole.html
+Redirect permanent /art3_Nicole_poetry.html /art/art3_nicole_poetry.html
+Redirect permanent /art3_Nicole_prose.html /art/art3_nicole_prose.html
+Redirect permanent /art4_Daniel.html /art/art4_daniel.html
+Redirect permanent /art4_Daniel_poetry.html /art/art4_daniel_poetry.html
+Redirect permanent /art4_Daniel_prose.html /art/art4_daniel_prose.html
+Redirect permanent /art5_Iennifer.html /art/art5_iennifer.html
+Redirect permanent /art5_Iennifer_photo.html /art/art5_iennifer_photo.html
+Redirect permanent /art5_Iennifer_poetry.html /art/art5_iennifer_poetry.html
+Redirect permanent /art6_AsN.html /art/art6_asn.html
+Redirect permanent /art6_AsN_prose.html /art/art6_asn_prose.html
+Redirect permanent /art7_AngelSapphire.html /art/art7_angelsapphire.html
+Redirect permanent /art7_AngelSapphire_poetry.html /art/art7_angelsapphire_poetry.html
+Redirect permanent /art8_Vestala.html /art/art8_vestala.html
+Redirect permanent /art8_Vestala_poetry.html /art/art8_vestala_poetry.html
 Redirect permanent /articles_AcrophobicPixie.html /articles_acrophobicpixie.html
 Redirect permanent /articles_Cheri.html /articles_cheri.html
 Redirect permanent /articles_Freelanceangel.html /articles_freelanceangel.html
@@ -505,7 +604,7 @@ Redirect permanent /translate_SoulDark.html /translate_souldark.html
 Redirect permanent /translate_VooDoo.html /translate_voodoo.html
 Redirect permanent /understanding_VC.html /understanding_vc.html
 
-# 4) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
+# 5) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
 Redirect permanent /a133_todonors_by_EnergoSanga.html /articles/a133_todonors_by_ragebruxa.html
 Redirect permanent /a81_hypvamp_energosanga.html /articles/a81_hypvamp_ragebruxa.html
 Redirect permanent /articles_energosanga.html /articles_ragebruxa.html
