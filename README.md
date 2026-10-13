@@ -24,7 +24,8 @@
 
 | Что | Файлов | Назначение |
 |---|---|---|
-| `*.html` в корне | 758 | все страницы сайта |
+| `*.html` в корне | 373 | страницы сайта, кроме статей |
+| `articles/` | 385 | статьи: `a<номер>_<имя>.html` |
 | `images/` | 958 | картинки: баннеры, иконки разделов, иллюстрации статей, результаты тестов |
 | `photos/` | 95 | галерея: фотографии и работы художников |
 | `smiles/` | 24 | смайлы для страниц |
@@ -34,7 +35,8 @@
 
 ## Структура
 
-Иерархия плоская: все страницы лежат в одном каталоге, по папкам разложены только ресурсы.
+Иерархия почти плоская: страницы сайта лежат в одном каталоге, статьи вынесены в `articles/`,
+по папкам разложены ресурсы.
 
 ```
 vc-forever/
@@ -42,6 +44,7 @@ vc-forever/
 ├── home.html         — главная сайта: боковое меню (#sidebar > ol#nav) + контент, стиль css/5.css
 ├── mainmenu.html     — фрагмент меню (css/6.css), используется как вставка
 ├── forum.html        — страница-переход: meta-refresh на community.html
+├── articles/         — 385 статей `a<номер>_<имя>.html` (ссылки на них — `articles/…`)
 ├── css/              — 10 файлов стилей, подключаются как css/N.css
 ├── images/           — 958 картинок
 ├── photos/           — 95 фото (галерея)
@@ -50,8 +53,10 @@ vc-forever/
 │                       VEWRS.doc, VEWRS-Survey-Russian.pdf, WBD.pdf
 ├── favicon.ico       — иконка сайта
 ├── robots.txt        — правила обхода для поисковиков
-├── .htaccess         — правила Apache для каталога (нужны только при раздаче через Apache;
-│                       для локального просмотра файлов в браузере не требуются)
+├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 485 правил
+│                       301-редиректа со старых адресов на актуальные (перенос статей в `articles/`,
+│                       приведение имён к lowercase, переименования по никам); для локального
+│                       просмотра файлов в браузере не требуется
 ├── vc_search.php     — страница поиска (форма отправляет запрос во внешний поисковик), нужен PHP
 └── README.md         — этот файл
 ```
@@ -59,11 +64,11 @@ vc-forever/
 ### Группы страниц (по префиксу имени файла)
 
 Именование историческое, но устойчивое: по префиксу видно, к какому разделу относится страница.
-Всего в корне **758 `.html`**:
+В корне **373 `.html`**, ещё **385 статей** — в каталоге `articles/`:
 
 | Префикс | Кол-во | Что это |
 |---|---|---|
-| `a<номер>_*.html` | 385 | статьи, сквозная нумерация `a1_` … `a383_` (без пропусков) + тестовые `a999_test5.html`, `a999_test6.html` |
+| `articles/a<номер>_*.html` | 385 | статьи, сквозная нумерация `a1_` … `a383_` (без пропусков) + тестовые `a999_test5.html`, `a999_test6.html` |
 | `articles_*.html` | 104 | раздел «Статьи»: листинги `articles_LIST`, `articles_SORT`, `articles_UPDATES` и страницы по авторам |
 | `compilation*` | 61 | сборники конкурсных работ: `compilationN_<тема>.html` — оглавление (11 файлов), `compilationN_workM.html` — сами работы (50 файлов) |
 | `translate_*.html` | 60 | «Статьи / сортировка» по переводчикам |
@@ -72,9 +77,9 @@ vc-forever/
 | `source_*.html` | 16 | «Статьи / сортировка» по источникам (внешние сайты и сообщества) |
 | `section_*.html` | 15 | «Статьи / сортировка» по разделам: `blood`, `donors`, `energy`, `sangs`, `somn`, `sleep`, `style`, `socio`, `seekers`… |
 | `research_*`, `r1_*`–`r3_*` | 26 | исследования: `research.html`, `research_faq`, описания типов (`ENFJ`, `ENFP`, `INFP`, `INTJ`), `research_results` и три волны результатов (`r1_*` — первые, `r2_*` — вторые, `r3_*` — третьи) |
-| прочее | 32 | отдельные страницы: `about_vc`, `archive`, `art`, `banner_ex`, `calendarium`, `community`, `contact`, `copyright`, `discord-tests`, `download`, `enter`, `enter_chat`, `example`, `forum`, `glossary`, `index`, `jabber`, `links`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `responsibility`, `sigil`, `society`, `start`, `support`, `testpage`, `translator`, `understanding_vc`, `vampshop`, `vc_jabber_faq` |
+| прочее | 32 | отдельные страницы: `about_vc`, `archive`, `art`, `banner_ex`, `calendarium`, `community`, `contact`, `copyright`, `discord-tests`, `download`, `enter`, `enter_chat`, `example`, `forum`, `glossary`, `home`, `index`, `jabber`, `links`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `responsibility`, `sigil`, `society`, `support`, `testpage`, `translator`, `understanding_vc`, `vampshop`, `vc_jabber_faq` |
 
-Совпадение по сумме: 385 + 104 + 61 + 60 + 35 + 24 + 16 + 15 + 26 + 32 = 758.
+Совпадение по сумме: 385 + 373 = 758.
 
 ### Как устроены страницы
 
@@ -85,8 +90,8 @@ vc-forever/
 - Навигация — боковое меню `ol#nav` в `#sidebar` (пример: `home.html`), плюс фрагмент `mainmenu.html`.
 - Раздел «Статьи» держится на перекрёстных индексах-«сортировках»: по авторам (`articles_*`),
   редакторам (`redactor_*`), переводчикам (`translate_*`), источникам (`source_*`) и разделам (`section_*`).
-- Новая статья = файл `a<следующий номер>_<краткое_имя>.html` в корне (последняя на 25.09.2026 —
-  `a383_vc_history_origins.html`), плюс ссылка в `articles_LIST` (блок «Новинки» и сводный список
+- Новая статья = файл `a<следующий номер>_<краткое_имя>.html` в каталоге `articles/` (последняя на 25.09.2026 —
+  `articles/a383_vc_history_origins.html`), плюс ссылка в `articles_LIST` (блок «Новинки» и сводный список
   раздела) и запись в журнале обновлений `articles_UPDATES`. Листинг `articles_SORT` при добавлении
   статей не обновляется.
 - Имена страниц — в нижнем регистре (`home.html`, `about_vc.html`, `translate_marcus.html`); исключение —
@@ -96,11 +101,11 @@ vc-forever/
 
 - **Форума** — он живёт отдельно (PHP + база данных) и в публичную копию не входит. На живой форум
   ссылаются **8 страниц** абсолютными адресами вида `https://vampirecommunity.ru/forum/index.php…`
-  (`a353_batenka_transformer.html`, `a364_ria_news.html`, `art.html`, `community.html`,
+  (`articles/a353_batenka_transformer.html`, `articles/a364_ria_news.html`, `art.html`, `community.html`,
   `research.html`, `research_results.html`, `home.html`, а также `archive.html` — на старый
   `vampirecommunity.forumbb.ru`), поэтому локально такие ссылки ведут на живой сайт, а не в
   локальную папку. Ещё `mainmenu.html` ведёт на локальный `forum.html` (meta-refresh на
-  `community.html`), а `a18_blood_und.html` и `a374_ovc_history_sangs_vs_energo.html` — на чужие
+  `community.html`), а `articles/a18_blood_und.html` и `articles/a374_ovc_history_sangs_vs_energo.html` — на чужие
   форумы (torrents.ru, atlantavampirealliance.com), это внешние источники.
 - **Админки, серверных конфигов и docker-обвязки** — только файлы самого сайта.
 - `vc_search.php` — единственная страница на PHP: без веб-сервера с PHP она не откроется,
