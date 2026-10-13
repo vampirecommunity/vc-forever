@@ -24,9 +24,10 @@
 
 | Что | Файлов | Назначение |
 |---|---|---|
-| `*.html` в корне | 352 | страницы сайта, кроме статей и страниц исследования |
+| `*.html` в корне | 255 | страницы сайта, кроме статей, страниц исследования и страниц творчества |
 | `articles/` | 385 | статьи: `a<номер>_<имя>.html` |
 | `research/` | 21 | страницы исследования: `research.html`, `research_results.html`, волны результатов `r1_*`–`r3_*` |
+| `art/` | 97 | раздел «Творчество»: `art.html`, персональные подборки `art<N>_<автор>*.html`, сборники `compilation*` |
 | `images/` | 958 | картинки: баннеры, иконки разделов, иллюстрации статей, результаты тестов |
 | `photos/` | 95 | галерея: фотографии и работы художников |
 | `smiles/` | 24 | смайлы для страниц |
@@ -48,6 +49,9 @@ vc-forever/
 ├── articles/         — 385 статей `a<номер>_<имя>.html` (ссылки на них — `articles/…`)
 ├── research/         — 21 страница исследования: `research.html`, `research_results.html`
 │                       и волны результатов `r1_*`–`r3_*` (ссылки на них — `research/…`)
+├── art/              — 97 страниц раздела «Творчество»: `art.html`, персональные подборки
+│                       `art<N>_<автор>*.html` и сборники конкурсных работ `compilation*`
+│                       (ссылки на них — `art/…`)
 ├── css/              — 10 файлов стилей, подключаются как css/N.css
 ├── images/           — 958 картинок
 ├── photos/           — 95 фото (галерея)
@@ -56,11 +60,11 @@ vc-forever/
 │                       VEWRS.doc, VEWRS-Survey-Russian.pdf, WBD.pdf
 ├── favicon.ico       — иконка сайта
 ├── robots.txt        — правила обхода для поисковиков
-├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 506 правил
+├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 603 правила
 │                       301-редиректа со старых адресов на актуальные (перенос статей в `articles/`,
-│                       перенос страниц исследования в `research/`, приведение имён к lowercase,
-│                       переименования по никам); для локального просмотра файлов в браузере
-│                       не требуется
+│                       перенос страниц исследования в `research/`, перенос страниц творчества в `art/`,
+│                       приведение имён к lowercase, переименования по никам); для локального просмотра
+│                       файлов в браузере не требуется
 ├── vc_search.php     — страница поиска (форма отправляет запрос во внешний поисковик), нужен PHP
 └── README.md         — этот файл
 ```
@@ -68,23 +72,23 @@ vc-forever/
 ### Группы страниц (по префиксу имени файла)
 
 Именование историческое, но устойчивое: по префиксу видно, к какому разделу относится страница.
-В корне **352 `.html`**, ещё **385 статей** — в каталоге `articles/`, и **21 страница исследования** — в `research/`:
+В корне **255 `.html`**, ещё **385 статей** — в каталоге `articles/`, **21 страница исследования** — в `research/`
+и **97 страниц творчества** — в `art/`:
 
 | Префикс | Кол-во | Что это |
 |---|---|---|
 | `articles/a<номер>_*.html` | 385 | статьи, сквозная нумерация `a1_` … `a383_` (без пропусков) + тестовые `a999_test5.html`, `a999_test6.html` |
 | `research/rN_*.html` | 21 | раздел «Исследование»: входные `research.html`, `research_results.html` и волны результатов (`r1_*` — первые, `r2_*` — вторые, `r3_*` — третьи), вынесены в каталог `research/` |
+| `art/*.html` | 97 | раздел «Творчество», вынесен в каталог `art/`: страница `art.html`, 35 персональных подборок авторов `art<N>_<автор>*.html` (суффиксы `_poetry` 11, `_prose` 7, `_photo`, `_pictures`) и 61 файл сборников конкурсных работ `compilation*` (`compilationN_<тема>.html` — 11 оглавлений, `compilationN_workM.html` — 50 работ) |
 | `articles_*.html` | 104 | раздел «Статьи»: листинги `articles_LIST`, `articles_SORT`, `articles_UPDATES` и страницы по авторам |
-| `compilation*` | 61 | сборники конкурсных работ: `compilationN_<тема>.html` — оглавление (11 файлов), `compilationN_workM.html` — сами работы (50 файлов) |
 | `translate_*.html` | 60 | «Статьи / сортировка» по переводчикам |
-| `art<N>_<автор>*.html` | 35 | раздел «Творчество»: авторы и их подборки, суффиксы `_poetry` (11), `_prose` (7), `_photo`, `_pictures` |
 | `redactor_*.html` | 24 | «Статьи / сортировка» по редакторам |
 | `source_*.html` | 16 | «Статьи / сортировка» по источникам (внешние сайты и сообщества) |
 | `section_*.html` | 15 | «Статьи / сортировка» по разделам: `blood`, `donors`, `energy`, `sangs`, `somn`, `sleep`, `style`, `socio`, `seekers`… |
 | `research_*.html` | 5 | описание исследования: `research_faq` и типы личности (`research_enfj`, `research_enfp`, `research_infp`, `research_intj`), остались в корне |
-| прочее | 32 | отдельные страницы: `about_vc`, `archive`, `art`, `banner_ex`, `calendarium`, `community`, `contact`, `copyright`, `discord-tests`, `download`, `enter`, `enter_chat`, `example`, `forum`, `glossary`, `home`, `index`, `jabber`, `links`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `responsibility`, `sigil`, `society`, `support`, `testpage`, `translator`, `understanding_vc`, `vampshop`, `vc_jabber_faq` |
+| прочее | 31 | отдельные страницы: `about_vc`, `archive`, `banner_ex`, `calendarium`, `community`, `contact`, `copyright`, `discord-tests`, `download`, `enter`, `enter_chat`, `example`, `forum`, `glossary`, `home`, `index`, `jabber`, `links`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `responsibility`, `sigil`, `society`, `support`, `testpage`, `translator`, `understanding_vc`, `vampshop`, `vc_jabber_faq` |
 
-Совпадение по сумме: 385 (`articles/`) + 21 (`research/`) + 352 (корень) = 758.
+Совпадение по сумме: 385 (`articles/`) + 21 (`research/`) + 97 (`art/`) + 255 (корень) = 758.
 
 ### Как устроены страницы
 
@@ -106,7 +110,7 @@ vc-forever/
 
 - **Форума** — он живёт отдельно (PHP + база данных) и в публичную копию не входит. На живой форум
   ссылаются **8 страниц** абсолютными адресами вида `https://vampirecommunity.ru/forum/index.php…`
-  (`articles/a353_batenka_transformer.html`, `articles/a364_ria_news.html`, `art.html`, `community.html`,
+  (`articles/a353_batenka_transformer.html`, `articles/a364_ria_news.html`, `art/art.html`, `community.html`,
   `research/research.html`, `research/research_results.html`, `home.html`, а также `archive.html` — на старый
   `vampirecommunity.forumbb.ru`), поэтому локально такие ссылки ведут на живой сайт, а не в
   локальную папку. Ещё `mainmenu.html` ведёт на локальный `forum.html` (meta-refresh на
