@@ -49,7 +49,7 @@ header("Content-Type: text/html; charset=" . $enc);
 						<a href="download.html"><b>Download</b>Скачать</a>
 						<br />		
 						<a href="glossary.html"><b>Glossary</b>Глоссарий</a>
-						<a href="articles_LIST.html"><b>Articles</b>Статьи</a>
+						<a href="articles/control/list.html"><b>Articles</b>Статьи</a>
 						<br />
 						<b><a href="community.html"><b>VC</b>Авторизация</a></b>
 						<a href="home.html"><b>Main</b>На главную</a>

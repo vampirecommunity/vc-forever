@@ -4,8 +4,9 @@ AddType application/x-httpd-php .html
 
 # --- 301-редиректы на актуальные адреса (добавлено 13.10.2026) ---
 # Старые адреса страниц перенаправляются на текущие файлы: перенос статей в каталог
-# articles/, перенос страниц исследования в каталог research/, перенос страниц творчества
-# в каталог art/, приведение имён страниц к lowercase, переименования по никам.
+# articles/, перенос индекс-страниц раздела «Статьи» в articles/control/, перенос страниц
+# исследования в каталог research/, перенос страниц творчества в каталог art/,
+# приведение имён страниц к lowercase, переименования по никам.
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
 
 # 1) статьи вынесены в каталог articles/
@@ -517,7 +518,12 @@ Redirect permanent /compilation9_work9.html /art/compilation9_work9.html
 Redirect permanent /compilation_scary_story.html /art/compilation_scary_story.html
 Redirect permanent /compilation_thoughts_of_spring.html /art/compilation_thoughts_of_spring.html
 
-# 4) имена страниц приведены к lowercase (в т.ч. start.html -> home.html)
+# 4) индекс-страницы раздела «Статьи» вынесены в каталог articles/control/
+Redirect permanent /articles_LIST.html /articles/control/list.html
+Redirect permanent /articles_SORT.html /articles/control/sort.html
+Redirect permanent /articles_UPDATES.html /articles/control/update.html
+
+# 5) имена страниц приведены к lowercase (в т.ч. start.html -> home.html)
 Redirect permanent /VC_jabber_FAQ.html /vc_jabber_faq.html
 Redirect permanent /a117_interview_to_RR.html /articles/a117_interview_to_rr.html
 Redirect permanent /a123_interview_to_AiF.html /articles/a123_interview_to_aif.html
@@ -604,7 +610,7 @@ Redirect permanent /translate_SoulDark.html /translate_souldark.html
 Redirect permanent /translate_VooDoo.html /translate_voodoo.html
 Redirect permanent /understanding_VC.html /understanding_vc.html
 
-# 5) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
+# 6) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
 Redirect permanent /a133_todonors_by_EnergoSanga.html /articles/a133_todonors_by_ragebruxa.html
 Redirect permanent /a81_hypvamp_energosanga.html /articles/a81_hypvamp_ragebruxa.html
 Redirect permanent /articles_energosanga.html /articles_ragebruxa.html

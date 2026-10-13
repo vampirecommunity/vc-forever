@@ -24,8 +24,8 @@
 
 | Что | Файлов | Назначение |
 |---|---|---|
-| `*.html` в корне | 255 | страницы сайта, кроме статей, страниц исследования и страниц творчества |
-| `articles/` | 385 | статьи: `a<номер>_<имя>.html` |
+| `*.html` в корне | 252 | страницы сайта, кроме статей, страниц исследования и страниц творчества |
+| `articles/` | 388 | статьи `a<номер>_<имя>.html` (385) и индекс-страницы раздела в `articles/control/` (3) |
 | `research/` | 21 | страницы исследования: `research.html`, `research_results.html`, волны результатов `r1_*`–`r3_*` |
 | `art/` | 97 | раздел «Творчество»: `art.html`, персональные подборки `art<N>_<автор>*.html`, сборники `compilation*` |
 | `images/` | 958 | картинки: баннеры, иконки разделов, иллюстрации статей, результаты тестов |
@@ -47,6 +47,9 @@ vc-forever/
 ├── mainmenu.html     — фрагмент меню (css/6.css), используется как вставка
 ├── forum.html        — страница-переход: meta-refresh на community.html
 ├── articles/         — 385 статей `a<номер>_<имя>.html` (ссылки на них — `articles/…`)
+│   └── control/      — 3 индекс-страницы раздела «Статьи»: `list.html` (бывший
+│                       `articles_LIST.html`), `sort.html` (бывший `articles_SORT.html`),
+│                       `update.html` (бывший `articles_UPDATES.html`)
 ├── research/         — 21 страница исследования: `research.html`, `research_results.html`
 │                       и волны результатов `r1_*`–`r3_*` (ссылки на них — `research/…`)
 ├── art/              — 97 страниц раздела «Творчество»: `art.html`, персональные подборки
@@ -60,9 +63,10 @@ vc-forever/
 │                       VEWRS.doc, VEWRS-Survey-Russian.pdf, WBD.pdf
 ├── favicon.ico       — иконка сайта
 ├── robots.txt        — правила обхода для поисковиков
-├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 603 правила
+├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 606 правил
 │                       301-редиректа со старых адресов на актуальные (перенос статей в `articles/`,
-│                       перенос страниц исследования в `research/`, перенос страниц творчества в `art/`,
+│                       перенос индекс-страниц раздела «Статьи» в `articles/control/`, перенос страниц
+│                       исследования в `research/`, перенос страниц творчества в `art/`,
 │                       приведение имён к lowercase, переименования по никам); для локального просмотра
 │                       файлов в браузере не требуется
 ├── vc_search.php     — страница поиска (форма отправляет запрос во внешний поисковик), нужен PHP
@@ -72,15 +76,17 @@ vc-forever/
 ### Группы страниц (по префиксу имени файла)
 
 Именование историческое, но устойчивое: по префиксу видно, к какому разделу относится страница.
-В корне **255 `.html`**, ещё **385 статей** — в каталоге `articles/`, **21 страница исследования** — в `research/`
+В корне **252 `.html`**, ещё **385 статей** и **3 индекс-страницы раздела** — в каталоге `articles/`
+(индекс-страницы — в `articles/control/`), **21 страница исследования** — в `research/`
 и **97 страниц творчества** — в `art/`:
 
 | Префикс | Кол-во | Что это |
 |---|---|---|
 | `articles/a<номер>_*.html` | 385 | статьи, сквозная нумерация `a1_` … `a383_` (без пропусков) + тестовые `a999_test5.html`, `a999_test6.html` |
+| `articles/control/*.html` | 3 | индекс-страницы раздела «Статьи», вынесены в каталог `articles/control/` и переименованы: `list.html` (бывший `articles_LIST.html`), `sort.html` (`articles_SORT.html`), `update.html` (`articles_UPDATES.html`) |
 | `research/rN_*.html` | 21 | раздел «Исследование»: входные `research.html`, `research_results.html` и волны результатов (`r1_*` — первые, `r2_*` — вторые, `r3_*` — третьи), вынесены в каталог `research/` |
 | `art/*.html` | 97 | раздел «Творчество», вынесен в каталог `art/`: страница `art.html`, 35 персональных подборок авторов `art<N>_<автор>*.html` (суффиксы `_poetry` 11, `_prose` 7, `_photo`, `_pictures`) и 61 файл сборников конкурсных работ `compilation*` (`compilationN_<тема>.html` — 11 оглавлений, `compilationN_workM.html` — 50 работ) |
-| `articles_*.html` | 104 | раздел «Статьи»: листинги `articles_LIST`, `articles_SORT`, `articles_UPDATES` и страницы по авторам |
+| `articles_*.html` | 101 | раздел «Статьи»: страницы по авторам и подборки их материалов (листинги вынесены в `articles/control/`) |
 | `translate_*.html` | 60 | «Статьи / сортировка» по переводчикам |
 | `redactor_*.html` | 24 | «Статьи / сортировка» по редакторам |
 | `source_*.html` | 16 | «Статьи / сортировка» по источникам (внешние сайты и сообщества) |
@@ -88,7 +94,7 @@ vc-forever/
 | `research_*.html` | 5 | описание исследования: `research_faq` и типы личности (`research_enfj`, `research_enfp`, `research_infp`, `research_intj`), остались в корне |
 | прочее | 31 | отдельные страницы: `about_vc`, `archive`, `banner_ex`, `calendarium`, `community`, `contact`, `copyright`, `discord-tests`, `download`, `enter`, `enter_chat`, `example`, `forum`, `glossary`, `home`, `index`, `jabber`, `links`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `responsibility`, `sigil`, `society`, `support`, `testpage`, `translator`, `understanding_vc`, `vampshop`, `vc_jabber_faq` |
 
-Совпадение по сумме: 385 (`articles/`) + 21 (`research/`) + 97 (`art/`) + 255 (корень) = 758.
+Совпадение по сумме: 385 (`articles/`) + 3 (`articles/control/`) + 21 (`research/`) + 97 (`art/`) + 252 (корень) = 758.
 
 ### Как устроены страницы
 
@@ -100,11 +106,12 @@ vc-forever/
 - Раздел «Статьи» держится на перекрёстных индексах-«сортировках»: по авторам (`articles_*`),
   редакторам (`redactor_*`), переводчикам (`translate_*`), источникам (`source_*`) и разделам (`section_*`).
 - Новая статья = файл `a<следующий номер>_<краткое_имя>.html` в каталоге `articles/` (последняя на 25.09.2026 —
-  `articles/a383_vc_history_origins.html`), плюс ссылка в `articles_LIST` (блок «Новинки» и сводный список
-  раздела) и запись в журнале обновлений `articles_UPDATES`. Листинг `articles_SORT` при добавлении
-  статей не обновляется.
-- Имена страниц — в нижнем регистре (`home.html`, `about_vc.html`, `translate_marcus.html`); исключение —
-  три индекс-страницы раздела «Статьи»: `articles_LIST`, `articles_SORT`, `articles_UPDATES`.
+  `articles/a383_vc_history_origins.html`), плюс ссылка в листинге `articles/control/list.html` (блок «Новинки»
+  и сводный список раздела) и запись в журнале обновлений `articles/control/update.html`. Листинг
+  `articles/control/sort.html` при добавлении статей не обновляется.
+- Имена страниц — в нижнем регистре (`home.html`, `about_vc.html`, `translate_marcus.html`); исключений нет:
+  три индекс-страницы раздела «Статьи» тоже переехали в `articles/control/` и названы в нижнем регистре —
+  `list.html`, `sort.html`, `update.html`.
 
 ### Чего в этой копии нет
 
