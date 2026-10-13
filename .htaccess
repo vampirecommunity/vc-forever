@@ -4,7 +4,8 @@ AddType application/x-httpd-php .html
 
 # --- 301-редиректы на актуальные адреса (добавлено 13.10.2026) ---
 # Старые адреса страниц перенаправляются на текущие файлы: перенос статей в каталог
-# articles/, приведение имён страниц к lowercase, переименования по никам.
+# articles/, перенос страниц исследования в каталог research/, приведение имён
+# страниц к lowercase, переименования по никам.
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
 
 # 1) статьи вынесены в каталог articles/
@@ -394,7 +395,30 @@ Redirect permanent /a999_test6.html /articles/a999_test6.html
 Redirect permanent /a99_fatigue_fight.html /articles/a99_fatigue_fight.html
 Redirect permanent /a9_realvamps_rose.html /articles/a9_realvamps_rose.html
 
-# 2) имена страниц приведены к lowercase (в т.ч. start.html -> home.html)
+# 2) страницы исследования вынесены в каталог research/
+Redirect permanent /r1_first_research_results.html /research/r1_first_research_results.html
+Redirect permanent /r1_results_p1.html /research/r1_results_p1.html
+Redirect permanent /r1_results_p2.html /research/r1_results_p2.html
+Redirect permanent /r1_results_p3.html /research/r1_results_p3.html
+Redirect permanent /r1_results_p4.html /research/r1_results_p4.html
+Redirect permanent /r2_results_p1.html /research/r2_results_p1.html
+Redirect permanent /r2_results_p2.html /research/r2_results_p2.html
+Redirect permanent /r2_results_p3.html /research/r2_results_p3.html
+Redirect permanent /r2_results_p4.html /research/r2_results_p4.html
+Redirect permanent /r2_second_research_results.html /research/r2_second_research_results.html
+Redirect permanent /r3_cities.html /research/r3_cities.html
+Redirect permanent /r3_donors.html /research/r3_donors.html
+Redirect permanent /r3_facts.html /research/r3_facts.html
+Redirect permanent /r3_results_p1.html /research/r3_results_p1.html
+Redirect permanent /r3_results_p2.html /research/r3_results_p2.html
+Redirect permanent /r3_results_p3.html /research/r3_results_p3.html
+Redirect permanent /r3_results_p4.html /research/r3_results_p4.html
+Redirect permanent /r3_third_research_results.html /research/r3_third_research_results.html
+Redirect permanent /r3_vampire.html /research/r3_vampire.html
+Redirect permanent /research.html /research/research.html
+Redirect permanent /research_results.html /research/research_results.html
+
+# 3) имена страниц приведены к lowercase (в т.ч. start.html -> home.html)
 Redirect permanent /VC_jabber_FAQ.html /vc_jabber_faq.html
 Redirect permanent /a117_interview_to_RR.html /articles/a117_interview_to_rr.html
 Redirect permanent /a123_interview_to_AiF.html /articles/a123_interview_to_aif.html
@@ -481,7 +505,7 @@ Redirect permanent /translate_SoulDark.html /translate_souldark.html
 Redirect permanent /translate_VooDoo.html /translate_voodoo.html
 Redirect permanent /understanding_VC.html /understanding_vc.html
 
-# 3) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
+# 4) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
 Redirect permanent /a133_todonors_by_EnergoSanga.html /articles/a133_todonors_by_ragebruxa.html
 Redirect permanent /a81_hypvamp_energosanga.html /articles/a81_hypvamp_ragebruxa.html
 Redirect permanent /articles_energosanga.html /articles_ragebruxa.html
