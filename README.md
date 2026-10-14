@@ -24,11 +24,11 @@
 
 | Что | Файлов | Назначение |
 |---|---|---|
-| `*.html` в корне | 208 | страницы сайта, кроме статей, страниц разделов, исследования, творчества, «основных» и «прочих» страниц |
+| `*.html` в корне | 203 | страницы сайта, кроме статей, страниц разделов, исследования, творчества, «основных» и «прочих» страниц |
 | `primary/` | 15 | «основные» страницы сайта: `about_vc`, `archive`, `banner_ex`, `community`, `contact`, `copyright`, `download`, `enter`, `glossary`, `links`, `responsibility`, `sigil`, `society`, `support`, `understanding_vc` |
 | `other/` | 14 | «прочие» страницы: `calendarium`, `discord-tests`, `enter_chat`, `example`, `forum`, `jabber`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `testpage`, `translator`, `vampshop`, `vc_jabber_faq` |
 | `articles/` | 403 | статьи `a<номер>_<имя>.html` (385), индекс-страницы раздела в `articles/control/` (3) и страницы разделов «Статьи / сортировка» в `articles/sections/` (15) |
-| `research/` | 21 | страницы исследования: `research.html`, `research_results.html`, волны результатов `r1_*`–`r3_*` |
+| `research/` | 26 | страницы исследования: `research.html`, `research_results.html`, волны результатов `r1_*`–`r3_*`, описания `research_faq` и типов личности (`research_enfj`, `research_enfp`, `research_infp`, `research_intj`) |
 | `art/` | 97 | раздел «Творчество»: `art.html`, персональные подборки `art<N>_<автор>*.html`, сборники `compilation*` |
 | `images/` | 958 | картинки: баннеры, иконки разделов, иллюстрации статей, результаты тестов |
 | `photos/` | 95 | галерея: фотографии и работы художников |
@@ -65,8 +65,10 @@ vc-forever/
 │                       `section_sangs.html`, `section_energy.html`, `section_blood.html`, …;
 │                       состав каждой страницы повторяет одноимённый блок `<h3>` листинга
 │                       `articles/control/list.html`
-├── research/         — 21 страница исследования: `research.html`, `research_results.html`
-│                       и волны результатов `r1_*`–`r3_*` (ссылки на них — `research/…`)
+├── research/         — 26 страниц исследования: `research.html`, `research_results.html`,
+│                       волны результатов `r1_*`–`r3_*` и описания `research_faq` + типов личности
+│                       (`research_enfj`, `research_enfp`, `research_infp`, `research_intj`)
+│                       (ссылки на них — `research/…`)
 ├── art/              — 97 страниц раздела «Творчество»: `art.html`, персональные подборки
 │                       `art<N>_<автор>*.html` и сборники конкурсных работ `compilation*`
 │                       (ссылки на них — `art/…`)
@@ -78,7 +80,7 @@ vc-forever/
 │                       VEWRS.doc, VEWRS-Survey-Russian.pdf, WBD.pdf
 ├── favicon.ico       — иконка сайта
 ├── robots.txt        — правила обхода для поисковиков
-├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 650 правил
+├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 655 правил
 │                       301-редиректа со старых адресов на актуальные (перенос статей в `articles/`,
 │                       перенос индекс-страниц раздела «Статьи» в `articles/control/` и страниц
 │                       разделов в `articles/sections/`, перенос страниц
@@ -93,9 +95,9 @@ vc-forever/
 ### Группы страниц (по префиксу имени файла)
 
 Именование историческое, но устойчивое: по префиксу видно, к какому разделу относится страница.
-В корне **208 `.html`**, ещё **385 статей** — в каталоге `articles/` (индекс-страницы раздела — в
+В корне **203 `.html`**, ещё **385 статей** — в каталоге `articles/` (индекс-страницы раздела — в
 `articles/control/`, страницы разделов «Статьи / сортировка» — в `articles/sections/`),
-**21 страница исследования** — в `research/`,
+**26 страниц исследования** — в `research/`,
 **97 страниц творчества** — в `art/`, **15 «основных» страниц** — в `primary/`
 и **14 «прочих»** — в `other/`:
 
@@ -104,7 +106,7 @@ vc-forever/
 | `articles/a<номер>_*.html` | 385 | статьи, сквозная нумерация `a1_` … `a383_` (без пропусков) + тестовые `a999_test5.html`, `a999_test6.html` |
 | `articles/control/*.html` | 3 | индекс-страницы раздела «Статьи», вынесены в каталог `articles/control/` и переименованы: `list.html` (бывший `articles_LIST.html`), `sort.html` (`articles_SORT.html`), `update.html` (`articles_UPDATES.html`) |
 | `articles/sections/*.html` | 15 | «Статьи / сортировка» по разделам (бывшие `section_*.html` из корня), вынесены в каталог `articles/sections/` с теми же именами: `main`, `some`, `sangs`, `energy`, `donors`, `seekers`, `blood`, `socio`, `style`, `otherkins`, `sleep`, `meditation`, `other`, `somn`, `archive`; ссылки на них — из `articles/control/sort.html` |
-| `research/rN_*.html` | 21 | раздел «Исследование»: входные `research.html`, `research_results.html` и волны результатов (`r1_*` — первые, `r2_*` — вторые, `r3_*` — третьи), вынесены в каталог `research/` |
+| `research/*.html` | 26 | раздел «Исследование», вынесен в каталог `research/`: входные `research.html`, `research_results.html`, волны результатов (`r1_*` — первые, `r2_*` — вторые, `r3_*` — третьи) и описания `research_faq` + типов личности (`research_enfj`, `research_enfp`, `research_infp`, `research_intj`) |
 | `art/*.html` | 97 | раздел «Творчество», вынесен в каталог `art/`: страница `art.html`, 35 персональных подборок авторов `art<N>_<автор>*.html` (суффиксы `_poetry` 11, `_prose` 7, `_photo`, `_pictures`) и 61 файл сборников конкурсных работ `compilation*` (`compilationN_<тема>.html` — 11 оглавлений, `compilationN_workM.html` — 50 работ) |
 | `primary/*.html` | 15 | «основные» страницы сайта, вынесены в каталог `primary/`: `about_vc`, `archive`, `banner_ex`, `community`, `contact`, `copyright`, `download`, `enter`, `glossary`, `links`, `responsibility`, `sigil`, `society`, `support`, `understanding_vc` |
 | `other/*.html` | 14 | «прочие» страницы, вынесены в каталог `other/`: `calendarium`, `discord-tests`, `enter_chat`, `example`, `forum`, `jabber`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `testpage`, `translator`, `vampshop`, `vc_jabber_faq` |
@@ -112,10 +114,9 @@ vc-forever/
 | `translate_*.html` | 60 | «Статьи / сортировка» по переводчикам |
 | `redactor_*.html` | 24 | «Статьи / сортировка» по редакторам |
 | `source_*.html` | 16 | «Статьи / сортировка» по источникам (внешние сайты и сообщества) |
-| `research_*.html` | 5 | описание исследования: `research_faq` и типы личности (`research_enfj`, `research_enfp`, `research_infp`, `research_intj`), остались в корне |
 | прочее | 2 | оставшиеся в корне отдельные страницы: `home`, `index` |
 
-Совпадение по сумме: 385 (`articles/`) + 3 (`articles/control/`) + 15 (`articles/sections/`) + 21 (`research/`) + 97 (`art/`) + 15 (`primary/`) + 14 (`other/`) + 208 (корень) = 758.
+Совпадение по сумме: 385 (`articles/`) + 3 (`articles/control/`) + 15 (`articles/sections/`) + 26 (`research/`) + 97 (`art/`) + 15 (`primary/`) + 14 (`other/`) + 203 (корень) = 758.
 
 ### Как устроены страницы
 
