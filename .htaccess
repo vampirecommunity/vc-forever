@@ -4,7 +4,8 @@ AddType application/x-httpd-php .html
 
 # --- 301-редиректы на актуальные адреса (добавлено 13.10.2026, дополнено 14.10.2026) ---
 # Старые адреса страниц перенаправляются на текущие файлы: перенос статей в каталог
-# articles/, перенос индекс-страниц раздела «Статьи» в articles/control/, перенос страниц
+# articles/, перенос индекс-страниц раздела «Статьи» в articles/control/ и страниц-разделов
+# («сортировка» по разделам) — в articles/sections/, перенос страниц
 # исследования в каталог research/, перенос страниц творчества в каталог art/, перенос
 # «основных» страниц сайта в primary/ и «прочих» — в other/,
 # приведение имён страниц к lowercase, переименования по никам.
@@ -524,7 +525,24 @@ Redirect permanent /articles_LIST.html /articles/control/list.html
 Redirect permanent /articles_SORT.html /articles/control/sort.html
 Redirect permanent /articles_UPDATES.html /articles/control/update.html
 
-# 5) основные страницы сайта вынесены в каталог primary/
+# 5) страницы разделов раздела «Статьи» вынесены в каталог articles/sections/
+Redirect permanent /section_archive.html /articles/sections/section_archive.html
+Redirect permanent /section_blood.html /articles/sections/section_blood.html
+Redirect permanent /section_donors.html /articles/sections/section_donors.html
+Redirect permanent /section_energy.html /articles/sections/section_energy.html
+Redirect permanent /section_main.html /articles/sections/section_main.html
+Redirect permanent /section_meditation.html /articles/sections/section_meditation.html
+Redirect permanent /section_other.html /articles/sections/section_other.html
+Redirect permanent /section_otherkins.html /articles/sections/section_otherkins.html
+Redirect permanent /section_sangs.html /articles/sections/section_sangs.html
+Redirect permanent /section_seekers.html /articles/sections/section_seekers.html
+Redirect permanent /section_sleep.html /articles/sections/section_sleep.html
+Redirect permanent /section_socio.html /articles/sections/section_socio.html
+Redirect permanent /section_some.html /articles/sections/section_some.html
+Redirect permanent /section_somn.html /articles/sections/section_somn.html
+Redirect permanent /section_style.html /articles/sections/section_style.html
+
+# 6) основные страницы сайта вынесены в каталог primary/
 Redirect permanent /about_vc.html /primary/about_vc.html
 Redirect permanent /archive.html /primary/archive.html
 Redirect permanent /banner_ex.html /primary/banner_ex.html
@@ -541,7 +559,7 @@ Redirect permanent /society.html /primary/society.html
 Redirect permanent /support.html /primary/support.html
 Redirect permanent /understanding_vc.html /primary/understanding_vc.html
 
-# 6) прочие страницы сайта вынесены в каталог other/
+# 7) прочие страницы сайта вынесены в каталог other/
 Redirect permanent /calendarium.html /other/calendarium.html
 Redirect permanent /discord-tests.html /other/discord-tests.html
 Redirect permanent /enter_chat.html /other/enter_chat.html
@@ -557,7 +575,7 @@ Redirect permanent /translator.html /other/translator.html
 Redirect permanent /vampshop.html /other/vampshop.html
 Redirect permanent /vc_jabber_faq.html /other/vc_jabber_faq.html
 
-# 7) имена страниц приведены к lowercase (в т.ч. start.html -> home.html)
+# 8) имена страниц приведены к lowercase (в т.ч. start.html -> home.html)
 Redirect permanent /VC_jabber_FAQ.html /other/vc_jabber_faq.html
 Redirect permanent /a117_interview_to_RR.html /articles/a117_interview_to_rr.html
 Redirect permanent /a123_interview_to_AiF.html /articles/a123_interview_to_aif.html
@@ -644,7 +662,7 @@ Redirect permanent /translate_SoulDark.html /translate_souldark.html
 Redirect permanent /translate_VooDoo.html /translate_voodoo.html
 Redirect permanent /understanding_VC.html /primary/understanding_vc.html
 
-# 8) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
+# 9) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
 Redirect permanent /a133_todonors_by_EnergoSanga.html /articles/a133_todonors_by_ragebruxa.html
 Redirect permanent /a81_hypvamp_energosanga.html /articles/a81_hypvamp_ragebruxa.html
 Redirect permanent /articles_energosanga.html /articles_ragebruxa.html
