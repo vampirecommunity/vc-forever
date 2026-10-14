@@ -11,6 +11,7 @@ AddType application/x-httpd-php .html
 # приведение имён страниц к lowercase, переименования по никам,
 # перенос страниц авторов в articles/authors/ (с уборкой префикса «articles_»),
 # перенос страниц редакторов в articles/editors/ (с уборкой префикса «redactor_»),
+# перенос страниц источников в articles/sources/ (с уборкой префикса «source_»),
 # объединение страниц авторов (Zero/Zerochan) и редакторов (Tadozumoru/Dark Iron).
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
 
@@ -847,3 +848,24 @@ Redirect permanent /redactor_veoland.html /articles/editors/veoland.html
 # 13) объединённые страницы редакторов (один человек под двумя никами)
 Redirect permanent /articles/editors/tadozumoru.html /articles/editors/darkiron.html
 Redirect permanent /redactor_tadozumoru.html /articles/editors/darkiron.html
+
+# 14) страницы источников вынесены в каталог articles/sources/ (префикс «source_» убран из имён)
+Redirect permanent /source_atlantavampirealliance.html /articles/sources/atlantavampirealliance.html
+Redirect permanent /source_bylightunseen.html /articles/sources/bylightunseen.html
+Redirect permanent /source_darknessembraced.html /articles/sources/darknessembraced.html
+Redirect permanent /source_everydayhealth.html /articles/sources/everydayhealth.html
+Redirect permanent /source_graveyardpress.html /articles/sources/graveyardpress.html
+Redirect permanent /source_houseofmysticechoes.html /articles/sources/houseofmysticechoes.html
+Redirect permanent /source_kheperu.html /articles/sources/kheperu.html
+Redirect permanent /source_nightsidesociety.html /articles/sources/nightsidesociety.html
+Redirect permanent /source_other.html /articles/sources/other.html
+Redirect permanent /source_otherkinalliance.html /articles/sources/otherkinalliance.html
+Redirect permanent /source_psychicvampireorg.html /articles/sources/psychicvampireorg.html
+Redirect permanent /source_realvampirenews.html /articles/sources/realvampirenews.html
+Redirect permanent /source_sanguinariusorg.html /articles/sources/sanguinariusorg.html
+Redirect permanent /source_savampyrenews.html /articles/sources/savampyrenews.html
+Redirect permanent /source_sphynxcatvp.html /articles/sources/sphynxcatvp.html
+Redirect permanent /source_suscitatio.html /articles/sources/suscitatio.html
+Redirect permanent /source_twilightpath.html /articles/sources/twilightpath.html
+Redirect permanent /source_vampirecommunity.html /articles/sources/vampirecommunity.html
+Redirect permanent /source_vcmb.html /articles/sources/vcmb.html
