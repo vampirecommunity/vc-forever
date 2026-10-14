@@ -11,7 +11,7 @@ AddType application/x-httpd-php .html
 # приведение имён страниц к lowercase, переименования по никам,
 # перенос страниц авторов в articles/authors/ (с уборкой префикса «articles_»),
 # перенос страниц редакторов в articles/editors/ (с уборкой префикса «redactor_»),
-# объединение страниц авторов (Zero/Zerochan).
+# объединение страниц авторов (Zero/Zerochan) и редакторов (Tadozumoru/Dark Iron).
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
 
 # 1) статьи вынесены в каталог articles/
@@ -657,7 +657,7 @@ Redirect permanent /redactor_Nicole.html /articles/editors/nicole.html
 Redirect permanent /redactor_RageBruxa.html /articles/editors/ragebruxa.html
 Redirect permanent /redactor_Regent.html /articles/editors/regent.html
 Redirect permanent /redactor_Salfario.html /articles/editors/salfario.html
-Redirect permanent /redactor_Tadozumoru.html /articles/editors/tadozumoru.html
+Redirect permanent /redactor_Tadozumoru.html /articles/editors/darkiron.html
 Redirect permanent /redactor_Valentin.html /articles/editors/valentin.html
 Redirect permanent /research_ENFJ.html /research/research_enfj.html
 Redirect permanent /research_ENFP.html /research/research_enfp.html
@@ -840,7 +840,10 @@ Redirect permanent /redactor_nk14.html /articles/editors/nk14.html
 Redirect permanent /redactor_ragebruxa.html /articles/editors/ragebruxa.html
 Redirect permanent /redactor_regent.html /articles/editors/regent.html
 Redirect permanent /redactor_salfario.html /articles/editors/salfario.html
-Redirect permanent /redactor_tadozumoru.html /articles/editors/tadozumoru.html
 Redirect permanent /redactor_u1035.html /articles/editors/u1035.html
 Redirect permanent /redactor_valentin.html /articles/editors/valentin.html
 Redirect permanent /redactor_veoland.html /articles/editors/veoland.html
+
+# 13) объединённые страницы редакторов (один человек под двумя никами)
+Redirect permanent /articles/editors/tadozumoru.html /articles/editors/darkiron.html
+Redirect permanent /redactor_tadozumoru.html /articles/editors/darkiron.html
