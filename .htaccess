@@ -2,10 +2,11 @@
 RemoveHandler .html
 AddType application/x-httpd-php .html
 
-# --- 301-редиректы на актуальные адреса (добавлено 13.10.2026) ---
+# --- 301-редиректы на актуальные адреса (добавлено 13.10.2026, дополнено 14.10.2026) ---
 # Старые адреса страниц перенаправляются на текущие файлы: перенос статей в каталог
 # articles/, перенос индекс-страниц раздела «Статьи» в articles/control/, перенос страниц
-# исследования в каталог research/, перенос страниц творчества в каталог art/,
+# исследования в каталог research/, перенос страниц творчества в каталог art/, перенос
+# «основных» страниц сайта в primary/ и «прочих» — в other/,
 # приведение имён страниц к lowercase, переименования по никам.
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
 
@@ -523,8 +524,41 @@ Redirect permanent /articles_LIST.html /articles/control/list.html
 Redirect permanent /articles_SORT.html /articles/control/sort.html
 Redirect permanent /articles_UPDATES.html /articles/control/update.html
 
-# 5) имена страниц приведены к lowercase (в т.ч. start.html -> home.html)
-Redirect permanent /VC_jabber_FAQ.html /vc_jabber_faq.html
+# 5) основные страницы сайта вынесены в каталог primary/
+Redirect permanent /about_vc.html /primary/about_vc.html
+Redirect permanent /archive.html /primary/archive.html
+Redirect permanent /banner_ex.html /primary/banner_ex.html
+Redirect permanent /community.html /primary/community.html
+Redirect permanent /contact.html /primary/contact.html
+Redirect permanent /copyright.html /primary/copyright.html
+Redirect permanent /download.html /primary/download.html
+Redirect permanent /enter.html /primary/enter.html
+Redirect permanent /glossary.html /primary/glossary.html
+Redirect permanent /links.html /primary/links.html
+Redirect permanent /responsibility.html /primary/responsibility.html
+Redirect permanent /sigil.html /primary/sigil.html
+Redirect permanent /society.html /primary/society.html
+Redirect permanent /support.html /primary/support.html
+Redirect permanent /understanding_vc.html /primary/understanding_vc.html
+
+# 6) прочие страницы сайта вынесены в каталог other/
+Redirect permanent /calendarium.html /other/calendarium.html
+Redirect permanent /discord-tests.html /other/discord-tests.html
+Redirect permanent /enter_chat.html /other/enter_chat.html
+Redirect permanent /example.html /other/example.html
+Redirect permanent /forum.html /other/forum.html
+Redirect permanent /jabber.html /other/jabber.html
+Redirect permanent /load_banners.html /other/load_banners.html
+Redirect permanent /load_radio.html /other/load_radio.html
+Redirect permanent /mainmenu.html /other/mainmenu.html
+Redirect permanent /photogallery.html /other/photogallery.html
+Redirect permanent /testpage.html /other/testpage.html
+Redirect permanent /translator.html /other/translator.html
+Redirect permanent /vampshop.html /other/vampshop.html
+Redirect permanent /vc_jabber_faq.html /other/vc_jabber_faq.html
+
+# 7) имена страниц приведены к lowercase (в т.ч. start.html -> home.html)
+Redirect permanent /VC_jabber_FAQ.html /other/vc_jabber_faq.html
 Redirect permanent /a117_interview_to_RR.html /articles/a117_interview_to_rr.html
 Redirect permanent /a123_interview_to_AiF.html /articles/a123_interview_to_aif.html
 Redirect permanent /a124_interview_to_MK.html /articles/a124_interview_to_mk.html
@@ -542,7 +576,7 @@ Redirect permanent /a332_Hybrid_Dillema.html /articles/a332_hybrid_dillema.html
 Redirect permanent /a358_VC_person_types.html /articles/a358_vc_person_types.html
 Redirect permanent /a361_create_TV_show.html /articles/a361_create_tv_show.html
 Redirect permanent /a79_ethical_VC.html /articles/a79_ethical_vc.html
-Redirect permanent /about_VC.html /about_vc.html
+Redirect permanent /about_VC.html /primary/about_vc.html
 Redirect permanent /art11_Nemesis.html /art/art11_nemesis.html
 Redirect permanent /art11_Nemesis_poetry.html /art/art11_nemesis_poetry.html
 Redirect permanent /art12_BaGDiN.html /art/art12_bagdin.html
@@ -608,9 +642,9 @@ Redirect permanent /start.html /home.html
 Redirect permanent /translate_Marcus.html /translate_marcus.html
 Redirect permanent /translate_SoulDark.html /translate_souldark.html
 Redirect permanent /translate_VooDoo.html /translate_voodoo.html
-Redirect permanent /understanding_VC.html /understanding_vc.html
+Redirect permanent /understanding_VC.html /primary/understanding_vc.html
 
-# 6) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
+# 8) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
 Redirect permanent /a133_todonors_by_EnergoSanga.html /articles/a133_todonors_by_ragebruxa.html
 Redirect permanent /a81_hypvamp_energosanga.html /articles/a81_hypvamp_ragebruxa.html
 Redirect permanent /articles_energosanga.html /articles_ragebruxa.html
