@@ -20,14 +20,14 @@
 Это публичная копия сайта — **только статическая часть**: готовые страницы и ресурсы к ним.
 Сборщиков, CMS и баз данных нет, форум и серверная обвязка в эту копию не входят.
 
-Всего в репозитории **1880 файлов** (статистика на 15.10.2026, включает статью №383):
+Всего в репозитории **1883 файла** (статистика на 15.10.2026, включает статью №383):
 
 | Что | Файлов | Назначение |
 |---|---|---|
-| `*.html` в корне | 78 | страницы сайта, кроме статей, страниц разделов, исследования, творчества, «основных» и «прочих» страниц |
+| `*.html` в корне | 62 | страницы сайта, кроме статей, страниц разделов, исследования, творчества, «основных» и «прочих» страниц |
 | `primary/` | 15 | «основные» страницы сайта: `about_vc`, `archive`, `banner_ex`, `community`, `contact`, `copyright`, `download`, `enter`, `glossary`, `links`, `responsibility`, `sigil`, `society`, `support`, `understanding_vc` |
 | `other/` | 14 | «прочие» страницы: `calendarium`, `discord-tests`, `enter_chat`, `example`, `forum`, `jabber`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `testpage`, `translator`, `vampshop`, `vc_jabber_faq` |
-| `articles/` | 552 | статьи `a<номер>_<имя>.html` (385), страницы авторов в `articles/authors/` (117), страницы редакторов в `articles/editors/` (32), индекс-страницы раздела в `articles/control/` (3) и страницы разделов «Статьи / сортировка» в `articles/sections/` (15) |
+| `articles/` | 571 | статьи `a<номер>_<имя>.html` (385), страницы авторов в `articles/authors/` (117), страницы редакторов в `articles/editors/` (32), страницы источников в `articles/sources/` (19), индекс-страницы раздела в `articles/control/` (3) и страницы разделов «Статьи / сортировка» в `articles/sections/` (15) |
 | `research/` | 26 | страницы исследования: `research.html`, `research_results.html`, волны результатов `r1_*`–`r3_*`, описания `research_faq` и типов личности (`research_enfj`, `research_enfp`, `research_infp`, `research_intj`) |
 | `art/` | 97 | раздел «Творчество»: `art.html`, персональные подборки `art<N>_<автор>*.html`, сборники `compilation*` |
 | `images/` | 958 | картинки: баннеры, иконки разделов, иллюстрации статей, результаты тестов |
@@ -66,6 +66,11 @@ vc-forever/
 │   │                   состав каждой страницы синхронизируется с атрибуцией статей
 │   │                   (`_tools/vc-editors-content.py --apply`); страницы Tadozumoru и Dark Iron
 │   │                   (один человек) объединены в одну — `articles/editors/darkiron.html`
+│   ├── sources/      — 19 страниц источников раздела «Статьи / сортировка» (бывшие
+│   │                   `source_<имя>.html` из корня), ссылки на них — из `articles/control/sort.html`;
+│   │                   состав каждой страницы синхронизируется с меткой `<b>Источник:</b>` статей
+│   │                   (`_tools/vc-sources-content.py --apply`); 16 прежних страниц + 3 новых
+│   │                   источника — `VCMB.org`, `RealVampireNews.com`, `EverydayHealth.com`
 │   ├── control/      — 3 индекс-страницы раздела «Статьи»: `list.html` (бывший
 │   │                   `articles_LIST.html`), `sort.html` (бывший `articles_SORT.html`),
 │   │                   `update.html` (бывший `articles_UPDATES.html`)
@@ -89,11 +94,12 @@ vc-forever/
 │                       VEWRS.doc, VEWRS-Survey-Russian.pdf, WBD.pdf
 ├── favicon.ico       — иконка сайта
 ├── robots.txt        — правила обхода для поисковиков
-├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 808 правил
+├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 827 правил
 │                       301-редиректа со старых адресов на актуальные (перенос статей в `articles/`,
 │                       перенос страниц авторов в `articles/authors/`, объединение страниц авторов
 │                       (Zero/Zerochan), перенос страниц редакторов в `articles/editors/`
-│                       с объединением страниц редакторов (Tadozumoru/Dark Iron), перенос индекс-страниц
+│                       с объединением страниц редакторов (Tadozumoru/Dark Iron), перенос страниц
+│                       источников в `articles/sources/`, перенос индекс-страниц
 │                       раздела «Статьи» в `articles/control/` и страниц
 │                       разделов в `articles/sections/`, перенос страниц
 │                       исследования в `research/`, перенос страниц творчества в `art/`, перенос
@@ -107,8 +113,9 @@ vc-forever/
 ### Группы страниц (по префиксу имени файла)
 
 Именование историческое, но устойчивое: по префиксу видно, к какому разделу относится страница.
-В корне **78 `.html`**, ещё **385 статей** — в каталоге `articles/` (страницы авторов — в
-`articles/authors/`, страницы редакторов — в `articles/editors/`, индекс-страницы раздела — в
+В корне **62 `.html`**, ещё **385 статей** — в каталоге `articles/` (страницы авторов — в
+`articles/authors/`, страницы редакторов — в `articles/editors/`, страницы источников — в
+`articles/sources/`, индекс-страницы раздела — в
 `articles/control/`, страницы разделов «Статьи / сортировка» — в `articles/sections/`),
 **26 страниц исследования** — в `research/`,
 **97 страниц творчества** — в `art/`, **15 «основных» страниц** — в `primary/`
@@ -126,10 +133,10 @@ vc-forever/
 | `articles/authors/*.html` | 117 | раздел «Статьи»: страницы по авторам и подборки их материалов — вынесены в каталог `articles/authors/`, из имён убран исторический префикс `articles_` (`articles_abyah.html` → `articles/authors/abyah.html`); 101 прежняя страница + 17 новых авторов, из которых две (Zero и Zerochan — один человек) объединены в одну |
 | `articles/editors/*.html` | 32 | раздел «Статьи»: страницы по редакторам — вынесены в каталог `articles/editors/`, из имён убран исторический префикс `redactor_` (`redactor_abyah.html` → `articles/editors/abyah.html`); 24 прежние страницы + 9 новых редакторов, из которых две (Tadozumoru и Dark Iron — один человек) объединены в одну |
 | `translate_*.html` | 60 | «Статьи / сортировка» по переводчикам |
-| `source_*.html` | 16 | «Статьи / сортировка» по источникам (внешние сайты и сообщества) |
+| `articles/sources/*.html` | 19 | раздел «Статьи»: страницы по источникам материала (внешние сайты и сообщества) — вынесены в каталог `articles/sources/`, из имён убран исторический префикс `source_` (`source_kheperu.html` → `articles/sources/kheperu.html`); 16 прежних страниц + 3 новых источника (`VCMB.org`, `RealVampireNews.com`, `EverydayHealth.com`); состав синхронизируется с меткой `<b>Источник:</b>` статей, ссылки — из раздела «По источникам» листинга `articles/control/sort.html` |
 | прочее | 2 | оставшиеся в корне отдельные страницы: `home`, `index` |
 
-Совпадение по сумме: 385 (`articles/`) + 117 (`articles/authors/`) + 32 (`articles/editors/`) + 3 (`articles/control/`) + 15 (`articles/sections/`) + 26 (`research/`) + 97 (`art/`) + 15 (`primary/`) + 14 (`other/`) + 78 (корень) = 782.
+Совпадение по сумме: 385 (`articles/`) + 117 (`articles/authors/`) + 32 (`articles/editors/`) + 19 (`articles/sources/`) + 3 (`articles/control/`) + 15 (`articles/sections/`) + 26 (`research/`) + 97 (`art/`) + 15 (`primary/`) + 14 (`other/`) + 60 (`translate_*`) + 2 (прочее) = 785.
 
 ### Как устроены страницы
 
@@ -140,7 +147,7 @@ vc-forever/
 - Навигация — боковое меню `ol#nav` в `#sidebar` (пример: `home.html`), плюс фрагмент `other/mainmenu.html`.
 - Раздел «Статьи» держится на перекрёстных индексах-«сортировках»: по авторам
   (`articles/authors/*.html`), редакторам (`articles/editors/*.html`), переводчикам (`translate_*`),
-  источникам (`source_*`) и разделам (`articles/sections/section_*.html`).
+  источникам (`articles/sources/*.html`) и разделам (`articles/sections/section_*.html`).
 - Страницы разделов (`articles/sections/section_*.html`, ссылки на них — из `articles/control/sort.html`)
   содержат те же списки, что и блоки `<h3>Раздел</h3>` листинга `articles/control/list.html`;
   при добавлении статьи их состав обновляют из листинга.
@@ -161,6 +168,15 @@ vc-forever/
   неё 301-редиректом (`MERGED_EDITORS` в `_tools/vc-editors-content.py`; сейчас так объединены
   Tadozumoru и Dark Iron — один человек, оставшаяся страница `articles/editors/darkiron.html`,
   `EDITOR_MERGES` в `_tools/vc-redirects.py`).
+- Страницы источников (`articles/sources/*.html`, ссылки — из раздела «По источникам» листинга
+  `sort.html`) собираются по метке источника: значение берётся из жирной метки
+  `<b>Источник:</b> …` (форма `<b>Источники:</b>` тоже понимается) в конце статьи, текст ссылки и
+  подпись — из листинга `list.html`; синхронизация — `_tools/vc-sources-content.py --apply`
+  (новый источник из статей получает страницу и запись в `sort.html` автоматически). Разовые
+  источники (1–2 статьи: медицинские справочники, новостные сайты) собраны на странице «Прочие»
+  (`articles/sources/other.html`, список `MINOR_LABELS` в инструменте). Историческое «соседство»
+  сохраняется: инструмент только дополняет списки, ничего не удаляя (например, 14 статей с меткой
+  `vcmb.org` остались и на странице Sanguinarius, где они лежали изначально).
 - Новая статья = файл `a<следующий номер>_<краткое_имя>.html` в каталоге `articles/` (последняя на 25.09.2026 —
   `articles/a383_vc_history_origins.html`), плюс ссылка в листинге `articles/control/list.html` (блок «Новинки»
   и сводный список раздела) и запись в журнале обновлений `articles/control/update.html`. Листинг
