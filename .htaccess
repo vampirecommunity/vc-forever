@@ -8,7 +8,9 @@ AddType application/x-httpd-php .html
 # («сортировка» по разделам) — в articles/sections/, перенос страниц исследования (включая
 # описания: FAQ и типы личности) в каталог research/, перенос страниц творчества в каталог art/,
 # перенос «основных» страниц сайта в primary/ и «прочих» — в other/,
-# приведение имён страниц к lowercase, переименования по никам.
+# приведение имён страниц к lowercase, переименования по никам,
+# перенос страниц авторов в articles/authors/ (с уборкой префикса «articles_»),
+# объединение страниц авторов (Zero/Zerochan).
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
 
 # 1) статьи вынесены в каталог articles/
@@ -627,17 +629,17 @@ Redirect permanent /art7_AngelSapphire.html /art/art7_angelsapphire.html
 Redirect permanent /art7_AngelSapphire_poetry.html /art/art7_angelsapphire_poetry.html
 Redirect permanent /art8_Vestala.html /art/art8_vestala.html
 Redirect permanent /art8_Vestala_poetry.html /art/art8_vestala_poetry.html
-Redirect permanent /articles_AcrophobicPixie.html /articles_acrophobicpixie.html
-Redirect permanent /articles_Cheri.html /articles_cheri.html
-Redirect permanent /articles_Freelanceangel.html /articles_freelanceangel.html
-Redirect permanent /articles_Giselle.html /articles_giselle.html
-Redirect permanent /articles_LadyChrys.html /articles_ladychrys.html
-Redirect permanent /articles_LunahValurEir.html /articles_lunahvalureir.html
-Redirect permanent /articles_MizukiAoki.html /articles_mizukiaoki.html
-Redirect permanent /articles_Myrbree.html /articles_myrbree.html
-Redirect permanent /articles_SamaelAnathan.html /articles_samaelanathan.html
-Redirect permanent /articles_Simim23.html /articles_simim23.html
-Redirect permanent /articles_SwanQueen.html /articles_swanqueen.html
+Redirect permanent /articles_AcrophobicPixie.html /articles/authors/acrophobicpixie.html
+Redirect permanent /articles_Cheri.html /articles/authors/cheri.html
+Redirect permanent /articles_Freelanceangel.html /articles/authors/freelanceangel.html
+Redirect permanent /articles_Giselle.html /articles/authors/giselle.html
+Redirect permanent /articles_LadyChrys.html /articles/authors/ladychrys.html
+Redirect permanent /articles_LunahValurEir.html /articles/authors/lunahvalureir.html
+Redirect permanent /articles_MizukiAoki.html /articles/authors/mizukiaoki.html
+Redirect permanent /articles_Myrbree.html /articles/authors/myrbree.html
+Redirect permanent /articles_SamaelAnathan.html /articles/authors/samaelanathan.html
+Redirect permanent /articles_Simim23.html /articles/authors/simim23.html
+Redirect permanent /articles_SwanQueen.html /articles/authors/swanqueen.html
 Redirect permanent /redactor_Abyah.html /redactor_abyah.html
 Redirect permanent /redactor_Adalmund.html /redactor_adalmund.html
 Redirect permanent /redactor_AlanVice.html /redactor_alanvice.html
@@ -670,7 +672,7 @@ Redirect permanent /understanding_VC.html /primary/understanding_vc.html
 # 9) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
 Redirect permanent /a133_todonors_by_EnergoSanga.html /articles/a133_todonors_by_ragebruxa.html
 Redirect permanent /a81_hypvamp_energosanga.html /articles/a81_hypvamp_ragebruxa.html
-Redirect permanent /articles_energosanga.html /articles_ragebruxa.html
+Redirect permanent /articles_energosanga.html /articles/authors/ragebruxa.html
 Redirect permanent /images/EnergoSanga.gif /images/RageBruxa.gif
 Redirect permanent /images/EnergoSanga2.gif /images/RageBruxa2.gif
 Redirect permanent /images/a1_energosanga1.jpg /images/a1_ragebruxa1.jpg
@@ -683,3 +685,126 @@ Redirect permanent /redactor_kristana.html /redactor_akkeliya.html
 Redirect permanent /translate_energosanga.html /translate_ragebruxa.html
 Redirect permanent /translate_kristana.html /translate_akkeliya.html
 Redirect permanent /translate_van.html /translate_alanvice.html
+
+# 10) страницы авторов вынесены в каталог articles/authors/ (префикс «articles_» убран из имён)
+Redirect permanent /articles_abyah.html /articles/authors/abyah.html
+Redirect permanent /articles_acrophobicpixie.html /articles/authors/acrophobicpixie.html
+Redirect permanent /articles_alex_murashko.html /articles/authors/alex_murashko.html
+Redirect permanent /articles_allin.html /articles/authors/allin.html
+Redirect permanent /articles_amy_krieytaz.html /articles/authors/amy_krieytaz.html
+Redirect permanent /articles_anonymous.html /articles/authors/anonymous.html
+Redirect permanent /articles_ansharseraphim.html /articles/authors/ansharseraphim.html
+Redirect permanent /articles_apowers.html /articles/authors/apowers.html
+Redirect permanent /articles_belfazaar_ashantison.html /articles/authors/belfazaar_ashantison.html
+Redirect permanent /articles_big_bad_angel.html /articles/authors/big_bad_angel.html
+Redirect permanent /articles_black_queen.html /articles/authors/black_queen.html
+Redirect permanent /articles_cheri.html /articles/authors/cheri.html
+Redirect permanent /articles_christi_muller.html /articles/authors/christi_muller.html
+Redirect permanent /articles_circe_arcanum.html /articles/authors/circe_arcanum.html
+Redirect permanent /articles_corvis_nocturnum.html /articles/authors/corvis_nocturnum.html
+Redirect permanent /articles_countessamenti.html /articles/authors/countessamenti.html
+Redirect permanent /articles_crackhack.html /articles/authors/crackhack.html
+Redirect permanent /articles_crimsonangel.html /articles/authors/crimsonangel.html
+Redirect permanent /articles_culinary_institute_of_america.html /articles/authors/culinary_institute_of_america.html
+Redirect permanent /articles_cynsanity.html /articles/authors/cynsanity.html
+Redirect permanent /articles_daemienkaen.html /articles/authors/daemienkaen.html
+Redirect permanent /articles_darkrose.html /articles/authors/darkrose.html
+Redirect permanent /articles_darkwolf.html /articles/authors/darkwolf.html
+Redirect permanent /articles_deacongray.html /articles/authors/deacongray.html
+Redirect permanent /articles_dev_sapr.html /articles/authors/dev_sapr.html
+Redirect permanent /articles_diaboluslupus.html /articles/authors/diaboluslupus.html
+Redirect permanent /articles_diss.html /articles/authors/diss.html
+Redirect permanent /articles_dragonflybynight.html /articles/authors/dragonflybynight.html
+Redirect permanent /articles_draygon_sheppard.html /articles/authors/draygon_sheppard.html
+Redirect permanent /articles_emilyana.html /articles/authors/emilyana.html
+Redirect permanent /articles_erin_chapman.html /articles/authors/erin_chapman.html
+Redirect permanent /articles_esahina.html /articles/authors/esahina.html
+Redirect permanent /articles_faite.html /articles/authors/faite.html
+Redirect permanent /articles_father_sebastiaan.html /articles/authors/father_sebastiaan.html
+Redirect permanent /articles_fathertodd.html /articles/authors/fathertodd.html
+Redirect permanent /articles_freelanceangel.html /articles/authors/freelanceangel.html
+Redirect permanent /articles_g0th.html /articles/authors/g0th.html
+Redirect permanent /articles_getfanged.html /articles/authors/getfanged.html
+Redirect permanent /articles_giselle.html /articles/authors/giselle.html
+Redirect permanent /articles_grampae.html /articles/authors/grampae.html
+Redirect permanent /articles_hawkmoor.html /articles/authors/hawkmoor.html
+Redirect permanent /articles_isealdor.html /articles/authors/isealdor.html
+Redirect permanent /articles_jarryd.html /articles/authors/jarryd.html
+Redirect permanent /articles_jennifer_j_brown.html /articles/authors/jennifer_j_brown.html
+Redirect permanent /articles_joe_pierre.html /articles/authors/joe_pierre.html
+Redirect permanent /articles_k.html /articles/authors/k.html
+Redirect permanent /articles_kahoku.html /articles/authors/kahoku.html
+Redirect permanent /articles_kellyredhead.html /articles/authors/kellyredhead.html
+Redirect permanent /articles_knightshayd.html /articles/authors/knightshayd.html
+Redirect permanent /articles_konfettika.html /articles/authors/konfettika.html
+Redirect permanent /articles_ladycg.html /articles/authors/ladycg.html
+Redirect permanent /articles_ladychrys.html /articles/authors/ladychrys.html
+Redirect permanent /articles_ladylilithdreams.html /articles/authors/ladylilithdreams.html
+Redirect permanent /articles_ladyofwebs.html /articles/authors/ladyofwebs.html
+Redirect permanent /articles_ladyslinky.html /articles/authors/ladyslinky.html
+Redirect permanent /articles_larae.html /articles/authors/larae.html
+Redirect permanent /articles_lauren.html /articles/authors/lauren.html
+Redirect permanent /articles_lostinnight.html /articles/authors/lostinnight.html
+Redirect permanent /articles_louche.html /articles/authors/louche.html
+Redirect permanent /articles_lrdazrael.html /articles/authors/lrdazrael.html
+Redirect permanent /articles_lunahvalureir.html /articles/authors/lunahvalureir.html
+Redirect permanent /articles_lupa.html /articles/authors/lupa.html
+Redirect permanent /articles_maloryn.html /articles/authors/maloryn.html
+Redirect permanent /articles_manfrednewstead.html /articles/authors/manfrednewstead.html
+Redirect permanent /articles_matilda.html /articles/authors/matilda.html
+Redirect permanent /articles_merticus.html /articles/authors/merticus.html
+Redirect permanent /articles_michellebelanger.html /articles/authors/michellebelanger.html
+Redirect permanent /articles_mina.html /articles/authors/mina.html
+Redirect permanent /articles_mizukiaoki.html /articles/authors/mizukiaoki.html
+Redirect permanent /articles_mrh.html /articles/authors/mrh.html
+Redirect permanent /articles_musidora.html /articles/authors/musidora.html
+Redirect permanent /articles_myrbree.html /articles/authors/myrbree.html
+Redirect permanent /articles_mys.html /articles/authors/mys.html
+Redirect permanent /articles_neonangel.html /articles/authors/neonangel.html
+Redirect permanent /articles_nightgaunt.html /articles/authors/nightgaunt.html
+Redirect permanent /articles_nightwalcker.html /articles/authors/nightwalcker.html
+Redirect permanent /articles_nikifears.html /articles/authors/nikifears.html
+Redirect permanent /articles_nocturnalvisions.html /articles/authors/nocturnalvisions.html
+Redirect permanent /articles_octarinevalur.html /articles/authors/octarinevalur.html
+Redirect permanent /articles_orthaevelve.html /articles/authors/orthaevelve.html
+Redirect permanent /articles_psion_valur_de_nocte.html /articles/authors/psion_valur_de_nocte.html
+Redirect permanent /articles_ragebruxa.html /articles/authors/ragebruxa.html
+Redirect permanent /articles_ravenalee.html /articles/authors/ravenalee.html
+Redirect permanent /articles_redraven.html /articles/authors/redraven.html
+Redirect permanent /articles_regent.html /articles/authors/regent.html
+Redirect permanent /articles_rose_vergara.html /articles/authors/rose_vergara.html
+Redirect permanent /articles_rvl.html /articles/authors/rvl.html
+Redirect permanent /articles_sabastian_decavalier.html /articles/authors/sabastian_decavalier.html
+Redirect permanent /articles_samaelanathan.html /articles/authors/samaelanathan.html
+Redirect permanent /articles_sanguinarius.html /articles/authors/sanguinarius.html
+Redirect permanent /articles_sarahdorrance.html /articles/authors/sarahdorrance.html
+Redirect permanent /articles_sarasvati.html /articles/authors/sarasvati.html
+Redirect permanent /articles_sejatte.html /articles/authors/sejatte.html
+Redirect permanent /articles_shaderra.html /articles/authors/shaderra.html
+Redirect permanent /articles_shiroulv.html /articles/authors/shiroulv.html
+Redirect permanent /articles_shortgoth.html /articles/authors/shortgoth.html
+Redirect permanent /articles_simim23.html /articles/authors/simim23.html
+Redirect permanent /articles_sphynxcat.html /articles/authors/sphynxcat.html
+Redirect permanent /articles_swanqueen.html /articles/authors/swanqueen.html
+Redirect permanent /articles_sylvereapleanan.html /articles/authors/sylvereapleanan.html
+Redirect permanent /articles_the_author.html /articles/authors/the_author.html
+Redirect permanent /articles_trollkvina.html /articles/authors/trollkvina.html
+Redirect permanent /articles_twiggy.html /articles/authors/twiggy.html
+Redirect permanent /articles_twin.html /articles/authors/twin.html
+Redirect permanent /articles_v5gqnu.html /articles/authors/v5gqnu.html
+Redirect permanent /articles_vampy.html /articles/authors/vampy.html
+Redirect permanent /articles_vampyre_psykic.html /articles/authors/vampyre_psykic.html
+Redirect permanent /articles_vc.html /articles/authors/vc.html
+Redirect permanent /articles_velvet.html /articles/authors/velvet.html
+Redirect permanent /articles_vespertine.html /articles/authors/vespertine.html
+Redirect permanent /articles_viktoriablackberry.html /articles/authors/viktoriablackberry.html
+Redirect permanent /articles_vyrdolak.html /articles/authors/vyrdolak.html
+Redirect permanent /articles_wicked.html /articles/authors/wicked.html
+Redirect permanent /articles_winterx.html /articles/authors/winterx.html
+Redirect permanent /articles_wolfkin.html /articles/authors/wolfkin.html
+Redirect permanent /articles_wraiths.html /articles/authors/wraiths.html
+Redirect permanent /articles_zerochan.html /articles/authors/zerochan.html
+
+# 11) объединённые страницы авторов (один человек под двумя никами)
+Redirect permanent /articles/authors/zero.html /articles/authors/zerochan.html
+Redirect permanent /articles_zero.html /articles/authors/zerochan.html
