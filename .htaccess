@@ -2,12 +2,12 @@
 RemoveHandler .html
 AddType application/x-httpd-php .html
 
-# --- 301-редиректы на актуальные адреса (добавлено 13.10.2026, дополнено 14.10.2026) ---
+# --- 301-редиректы на актуальные адреса (добавлено 13.10.2026, дополнено 14.10.2026 и 15.10.2026) ---
 # Старые адреса страниц перенаправляются на текущие файлы: перенос статей в каталог
 # articles/, перенос индекс-страниц раздела «Статьи» в articles/control/ и страниц-разделов
-# («сортировка» по разделам) — в articles/sections/, перенос страниц
-# исследования в каталог research/, перенос страниц творчества в каталог art/, перенос
-# «основных» страниц сайта в primary/ и «прочих» — в other/,
+# («сортировка» по разделам) — в articles/sections/, перенос страниц исследования (включая
+# описания: FAQ и типы личности) в каталог research/, перенос страниц творчества в каталог art/,
+# перенос «основных» страниц сайта в primary/ и «прочих» — в other/,
 # приведение имён страниц к lowercase, переименования по никам.
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
 
@@ -419,6 +419,11 @@ Redirect permanent /r3_results_p4.html /research/r3_results_p4.html
 Redirect permanent /r3_third_research_results.html /research/r3_third_research_results.html
 Redirect permanent /r3_vampire.html /research/r3_vampire.html
 Redirect permanent /research.html /research/research.html
+Redirect permanent /research_enfj.html /research/research_enfj.html
+Redirect permanent /research_enfp.html /research/research_enfp.html
+Redirect permanent /research_faq.html /research/research_faq.html
+Redirect permanent /research_infp.html /research/research_infp.html
+Redirect permanent /research_intj.html /research/research_intj.html
 Redirect permanent /research_results.html /research/research_results.html
 
 # 3) страницы творчества вынесены в каталог art/
@@ -651,11 +656,11 @@ Redirect permanent /redactor_Regent.html /redactor_regent.html
 Redirect permanent /redactor_Salfario.html /redactor_salfario.html
 Redirect permanent /redactor_Tadozumoru.html /redactor_tadozumoru.html
 Redirect permanent /redactor_Valentin.html /redactor_valentin.html
-Redirect permanent /research_ENFJ.html /research_enfj.html
-Redirect permanent /research_ENFP.html /research_enfp.html
-Redirect permanent /research_FAQ.html /research_faq.html
-Redirect permanent /research_INFP.html /research_infp.html
-Redirect permanent /research_INTJ.html /research_intj.html
+Redirect permanent /research_ENFJ.html /research/research_enfj.html
+Redirect permanent /research_ENFP.html /research/research_enfp.html
+Redirect permanent /research_FAQ.html /research/research_faq.html
+Redirect permanent /research_INFP.html /research/research_infp.html
+Redirect permanent /research_INTJ.html /research/research_intj.html
 Redirect permanent /start.html /home.html
 Redirect permanent /translate_Marcus.html /translate_marcus.html
 Redirect permanent /translate_SoulDark.html /translate_souldark.html
