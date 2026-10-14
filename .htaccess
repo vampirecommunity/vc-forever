@@ -9,7 +9,8 @@ AddType application/x-httpd-php .html
 # описания: FAQ и типы личности) в каталог research/, перенос страниц творчества в каталог art/,
 # перенос «основных» страниц сайта в primary/ и «прочих» — в other/,
 # приведение имён страниц к lowercase, переименования по никам,
-# перенос страниц авторов в articles/authors/ (с уборкой префикса «articles_»).
+# перенос страниц авторов в articles/authors/ (с уборкой префикса «articles_»),
+# объединение страниц авторов (Zero/Zerochan).
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
 
 # 1) статьи вынесены в каталог articles/
@@ -802,5 +803,8 @@ Redirect permanent /articles_wicked.html /articles/authors/wicked.html
 Redirect permanent /articles_winterx.html /articles/authors/winterx.html
 Redirect permanent /articles_wolfkin.html /articles/authors/wolfkin.html
 Redirect permanent /articles_wraiths.html /articles/authors/wraiths.html
-Redirect permanent /articles_zero.html /articles/authors/zero.html
 Redirect permanent /articles_zerochan.html /articles/authors/zerochan.html
+
+# 11) объединённые страницы авторов (один человек под двумя никами)
+Redirect permanent /articles/authors/zero.html /articles/authors/zerochan.html
+Redirect permanent /articles_zero.html /articles/authors/zerochan.html
