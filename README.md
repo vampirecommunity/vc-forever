@@ -20,14 +20,14 @@
 Это публичная копия сайта — **только статическая часть**: готовые страницы и ресурсы к ним.
 Сборщиков, CMS и баз данных нет, форум и серверная обвязка в эту копию не входят.
 
-Всего в репозитории **1873 файла** (статистика на 15.10.2026, включает статью №383):
+Всего в репозитории **1872 файла** (статистика на 15.10.2026, включает статью №383):
 
 | Что | Файлов | Назначение |
 |---|---|---|
 | `*.html` в корне | 102 | страницы сайта, кроме статей, страниц разделов, исследования, творчества, «основных» и «прочих» страниц |
 | `primary/` | 15 | «основные» страницы сайта: `about_vc`, `archive`, `banner_ex`, `community`, `contact`, `copyright`, `download`, `enter`, `glossary`, `links`, `responsibility`, `sigil`, `society`, `support`, `understanding_vc` |
 | `other/` | 14 | «прочие» страницы: `calendarium`, `discord-tests`, `enter_chat`, `example`, `forum`, `jabber`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `testpage`, `translator`, `vampshop`, `vc_jabber_faq` |
-| `articles/` | 521 | статьи `a<номер>_<имя>.html` (385), страницы авторов в `articles/authors/` (118), индекс-страницы раздела в `articles/control/` (3) и страницы разделов «Статьи / сортировка» в `articles/sections/` (15) |
+| `articles/` | 520 | статьи `a<номер>_<имя>.html` (385), страницы авторов в `articles/authors/` (117), индекс-страницы раздела в `articles/control/` (3) и страницы разделов «Статьи / сортировка» в `articles/sections/` (15) |
 | `research/` | 26 | страницы исследования: `research.html`, `research_results.html`, волны результатов `r1_*`–`r3_*`, описания `research_faq` и типов личности (`research_enfj`, `research_enfp`, `research_infp`, `research_intj`) |
 | `art/` | 97 | раздел «Творчество»: `art.html`, персональные подборки `art<N>_<автор>*.html`, сборники `compilation*` |
 | `images/` | 958 | картинки: баннеры, иконки разделов, иллюстрации статей, результаты тестов |
@@ -84,9 +84,10 @@ vc-forever/
 │                       VEWRS.doc, VEWRS-Survey-Russian.pdf, WBD.pdf
 ├── favicon.ico       — иконка сайта
 ├── robots.txt        — правила обхода для поисковиков
-├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 773 правила
+├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 774 правила
 │                       301-редиректа со старых адресов на актуальные (перенос статей в `articles/`,
-│                       перенос страниц авторов в `articles/authors/`, перенос индекс-страниц
+│                       перенос страниц авторов в `articles/authors/`, объединение страниц авторов
+│                       (Zero/Zerochan), перенос индекс-страниц
 │                       раздела «Статьи» в `articles/control/` и страниц
 │                       разделов в `articles/sections/`, перенос страниц
 │                       исследования в `research/`, перенос страниц творчества в `art/`, перенос
@@ -116,13 +117,13 @@ vc-forever/
 | `art/*.html` | 97 | раздел «Творчество», вынесен в каталог `art/`: страница `art.html`, 35 персональных подборок авторов `art<N>_<автор>*.html` (суффиксы `_poetry` 11, `_prose` 7, `_photo`, `_pictures`) и 61 файл сборников конкурсных работ `compilation*` (`compilationN_<тема>.html` — 11 оглавлений, `compilationN_workM.html` — 50 работ) |
 | `primary/*.html` | 15 | «основные» страницы сайта, вынесены в каталог `primary/`: `about_vc`, `archive`, `banner_ex`, `community`, `contact`, `copyright`, `download`, `enter`, `glossary`, `links`, `responsibility`, `sigil`, `society`, `support`, `understanding_vc` |
 | `other/*.html` | 14 | «прочие» страницы, вынесены в каталог `other/`: `calendarium`, `discord-tests`, `enter_chat`, `example`, `forum`, `jabber`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `testpage`, `translator`, `vampshop`, `vc_jabber_faq` |
-| `articles/authors/*.html` | 118 | раздел «Статьи»: страницы по авторам и подборки их материалов — вынесены в каталог `articles/authors/`, из имён убран исторический префикс `articles_` (`articles_abyah.html` → `articles/authors/abyah.html`); 101 прежняя страница + 17 новых авторов |
+| `articles/authors/*.html` | 117 | раздел «Статьи»: страницы по авторам и подборки их материалов — вынесены в каталог `articles/authors/`, из имён убран исторический префикс `articles_` (`articles_abyah.html` → `articles/authors/abyah.html`); 101 прежняя страница + 17 новых авторов, из которых две (Zero и Zerochan — один человек) объединены в одну |
 | `translate_*.html` | 60 | «Статьи / сортировка» по переводчикам |
 | `redactor_*.html` | 24 | «Статьи / сортировка» по редакторам |
 | `source_*.html` | 16 | «Статьи / сортировка» по источникам (внешние сайты и сообщества) |
 | прочее | 2 | оставшиеся в корне отдельные страницы: `home`, `index` |
 
-Совпадение по сумме: 385 (`articles/`) + 118 (`articles/authors/`) + 3 (`articles/control/`) + 15 (`articles/sections/`) + 26 (`research/`) + 97 (`art/`) + 15 (`primary/`) + 14 (`other/`) + 102 (корень) = 775.
+Совпадение по сумме: 385 (`articles/`) + 117 (`articles/authors/`) + 3 (`articles/control/`) + 15 (`articles/sections/`) + 26 (`research/`) + 97 (`art/`) + 15 (`primary/`) + 14 (`other/`) + 102 (корень) = 774.
 
 ### Как устроены страницы
 
@@ -141,7 +142,9 @@ vc-forever/
   собираются по атрибуции самих статей: ник берётся из блока `<b>Автор:</b>`/`<b>Авторы:</b>`
   в конце статьи, текст ссылки и подпись (` / <i>перевод с …</i>`) — из листинга `list.html`;
   синхронизация — `_tools/vc-authors-content.py --apply` (новый автор из статей получает
-  страницу и запись в `sort.html` автоматически).
+  страницу и запись в `sort.html` автоматически). Если один человек фигурирует под двумя никами
+  (Zero и Zerochan), материалы сведены на одну страницу, а второй ник ведёт на неё 301-редиректом
+  (`MERGED_AUTHORS` в `_tools/vc-authors-content.py`, `AUTHOR_MERGES` в `_tools/vc-redirects.py`).
 - Новая статья = файл `a<следующий номер>_<краткое_имя>.html` в каталоге `articles/` (последняя на 25.09.2026 —
   `articles/a383_vc_history_origins.html`), плюс ссылка в листинге `articles/control/list.html` (блок «Новинки»
   и сводный список раздела) и запись в журнале обновлений `articles/control/update.html`. Листинг
