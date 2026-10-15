@@ -12,6 +12,7 @@ AddType application/x-httpd-php .html
 # перенос страниц авторов в articles/authors/ (с уборкой префикса «articles_»),
 # перенос страниц редакторов в articles/editors/ (с уборкой префикса «redactor_»),
 # перенос страниц источников в articles/sources/ (с уборкой префикса «source_»),
+# перенос страниц переводчиков в articles/translators/ (с уборкой префикса «translate_»),
 # объединение страниц авторов (Zero/Zerochan) и редакторов (Tadozumoru/Dark Iron).
 # Промежуточные адреса страниц разделов (/articles/sections/section_<имя>.html, жили
 # 14–15.10.2026) тоже ведут в один переход на новые имена.
@@ -668,9 +669,9 @@ Redirect permanent /research_FAQ.html /research/research_faq.html
 Redirect permanent /research_INFP.html /research/research_infp.html
 Redirect permanent /research_INTJ.html /research/research_intj.html
 Redirect permanent /start.html /home.html
-Redirect permanent /translate_Marcus.html /translate_marcus.html
-Redirect permanent /translate_SoulDark.html /translate_souldark.html
-Redirect permanent /translate_VooDoo.html /translate_voodoo.html
+Redirect permanent /translate_Marcus.html /articles/translators/marcus.html
+Redirect permanent /translate_SoulDark.html /articles/translators/souldark.html
+Redirect permanent /translate_VooDoo.html /articles/translators/voodoo.html
 Redirect permanent /understanding_VC.html /primary/understanding_vc.html
 
 # 9) переименования URL по никам (EnergoSanga/RageBruxa, van/Alan Vice, kristana/akkeliya)
@@ -686,9 +687,9 @@ Redirect permanent /images/a1_energosanga4.jpg /images/a1_ragebruxa4.jpg
 Redirect permanent /images/todonors_by_EnergoSanga.gif /images/todonors_by_RageBruxa.gif
 Redirect permanent /redactor_EnergoSanga.html /articles/editors/ragebruxa.html
 Redirect permanent /redactor_kristana.html /articles/editors/akkeliya.html
-Redirect permanent /translate_energosanga.html /translate_ragebruxa.html
-Redirect permanent /translate_kristana.html /translate_akkeliya.html
-Redirect permanent /translate_van.html /translate_alanvice.html
+Redirect permanent /translate_energosanga.html /articles/translators/ragebruxa.html
+Redirect permanent /translate_kristana.html /articles/translators/akkeliya.html
+Redirect permanent /translate_van.html /articles/translators/alanvice.html
 
 # 10) страницы авторов вынесены в каталог articles/authors/ (префикс «articles_» убран из имён)
 Redirect permanent /articles_abyah.html /articles/authors/abyah.html
@@ -888,3 +889,71 @@ Redirect permanent /articles/sections/section_socio.html /articles/sections/soci
 Redirect permanent /articles/sections/section_some.html /articles/sections/some.html
 Redirect permanent /articles/sections/section_somn.html /articles/sections/somn.html
 Redirect permanent /articles/sections/section_style.html /articles/sections/style.html
+
+# 16) страницы переводчиков вынесены в каталог articles/translators/ (префикс «translate_» убран из имён)
+Redirect permanent /translate_abricos.html /articles/translators/abricos.html
+Redirect permanent /translate_abyah.html /articles/translators/abyah.html
+Redirect permanent /translate_adalmund.html /articles/translators/adalmund.html
+Redirect permanent /translate_akkeliya.html /articles/translators/akkeliya.html
+Redirect permanent /translate_alanvice.html /articles/translators/alanvice.html
+Redirect permanent /translate_ambalsht.html /articles/translators/ambalsht.html
+Redirect permanent /translate_anastasiamorosoflores.html /articles/translators/anastasiamorosoflores.html
+Redirect permanent /translate_andali.html /articles/translators/andali.html
+Redirect permanent /translate_annamaria.html /articles/translators/annamaria.html
+Redirect permanent /translate_axelisshade.html /articles/translators/axelisshade.html
+Redirect permanent /translate_ayne.html /articles/translators/ayne.html
+Redirect permanent /translate_colleague.html /articles/translators/colleague.html
+Redirect permanent /translate_corvo.html /articles/translators/corvo.html
+Redirect permanent /translate_crackhack.html /articles/translators/crackhack.html
+Redirect permanent /translate_dansemacabre.html /articles/translators/dansemacabre.html
+Redirect permanent /translate_darkangel.html /articles/translators/darkangel.html
+Redirect permanent /translate_darkbishop.html /articles/translators/darkbishop.html
+Redirect permanent /translate_darusic97.html /articles/translators/darusic97.html
+Redirect permanent /translate_devadaimon.html /articles/translators/devadaimon.html
+Redirect permanent /translate_drakula.html /articles/translators/drakula.html
+Redirect permanent /translate_drakula1666.html /articles/translators/drakula1666.html
+Redirect permanent /translate_duality.html /articles/translators/duality.html
+Redirect permanent /translate_eclipse.html /articles/translators/eclipse.html
+Redirect permanent /translate_elizabeta.html /articles/translators/elizabeta.html
+Redirect permanent /translate_emilyana.html /articles/translators/emilyana.html
+Redirect permanent /translate_esahina.html /articles/translators/esahina.html
+Redirect permanent /translate_gloria.html /articles/translators/gloria.html
+Redirect permanent /translate_grob.html /articles/translators/grob.html
+Redirect permanent /translate_ialimamor.html /articles/translators/ialimamor.html
+Redirect permanent /translate_jess.html /articles/translators/jess.html
+Redirect permanent /translate_josefine.html /articles/translators/josefine.html
+Redirect permanent /translate_kamira.html /articles/translators/kamira.html
+Redirect permanent /translate_knopf.html /articles/translators/knopf.html
+Redirect permanent /translate_koldor.html /articles/translators/koldor.html
+Redirect permanent /translate_kollectioner.html /articles/translators/kollectioner.html
+Redirect permanent /translate_konfettika.html /articles/translators/konfettika.html
+Redirect permanent /translate_ksenialed.html /articles/translators/ksenialed.html
+Redirect permanent /translate_lars.html /articles/translators/lars.html
+Redirect permanent /translate_loki.html /articles/translators/loki.html
+Redirect permanent /translate_marcus.html /articles/translators/marcus.html
+Redirect permanent /translate_matilda.html /articles/translators/matilda.html
+Redirect permanent /translate_may.html /articles/translators/may.html
+Redirect permanent /translate_mcmamont.html /articles/translators/mcmamont.html
+Redirect permanent /translate_mirandagray.html /articles/translators/mirandagray.html
+Redirect permanent /translate_nagini.html /articles/translators/nagini.html
+Redirect permanent /translate_negoruy.html /articles/translators/negoruy.html
+Redirect permanent /translate_nicole.html /articles/translators/nicole.html
+Redirect permanent /translate_nk14.html /articles/translators/nk14.html
+Redirect permanent /translate_ragebruxa.html /articles/translators/ragebruxa.html
+Redirect permanent /translate_regent.html /articles/translators/regent.html
+Redirect permanent /translate_sangwa.html /articles/translators/sangwa.html
+Redirect permanent /translate_setsch.html /articles/translators/setsch.html
+Redirect permanent /translate_slipru.html /articles/translators/slipru.html
+Redirect permanent /translate_sofia.html /articles/translators/sofia.html
+Redirect permanent /translate_souldark.html /articles/translators/souldark.html
+Redirect permanent /translate_twiggy.html /articles/translators/twiggy.html
+Redirect permanent /translate_twin.html /articles/translators/twin.html
+Redirect permanent /translate_u1035.html /articles/translators/u1035.html
+Redirect permanent /translate_valentin.html /articles/translators/valentin.html
+Redirect permanent /translate_velvet.html /articles/translators/velvet.html
+Redirect permanent /translate_vixen.html /articles/translators/vixen.html
+Redirect permanent /translate_voodoo.html /articles/translators/voodoo.html
+Redirect permanent /translate_walkiriya.html /articles/translators/walkiriya.html
+Redirect permanent /translate_xell.html /articles/translators/xell.html
+Redirect permanent /translate_yazoo.html /articles/translators/yazoo.html
+Redirect permanent /translate_yliana.html /articles/translators/yliana.html
