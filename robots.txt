@@ -1,2 +1,107 @@
+# robots.txt — сайт «Сообщество Вампиров», https://vampirecommunity.ru/
+#
+# Файл лежит в корне статики: в проекте vc — это каталог http/, в публичной копии vc-forever —
+# корень репозитория. В обеих версиях файл должен совпадать побайтово.
+# Если появится новый служебный каталог или новый GET-параметр в ссылках — дополнить правила ниже.
+#
+# Что где лежит (полное дерево — в README.md):
+#   /                       — index.html (заглушка «18+») и home.html (главная страница)
+#   /primary/               — «основные» страницы: о нас, символ, контакты, ссылки, глоссарий, …
+#   /other/                 — «прочие» страницы: календарь, чат, галерея, баннеры, магазин, …
+#   /articles/              — статьи «a<номер>_<имя>.html»; страницы разделов разложены по каталогам:
+#     /articles/control/      — индексы раздела «Статьи»: list, sort, update
+#     /articles/authors/      — авторы статей
+#     /articles/editors/      — редакторы
+#     /articles/sources/      — источники
+#     /articles/translators/  — переводчики
+#     /articles/sections/     — страницы разделов («сортировка» по темам)
+#   /research/              — исследование и его результаты
+#   /art/                   — творчество: поэзия, проза, фотогалереи
+#   /images/ /photos/ /smiles/ /css/ /files/ — картинки, фотогалерея, смайлы, стили, файлы для скачивания
+#   /forum/                 — форум SMF 2.0.15 (есть только в vc; в публичной копии форума нет)
+#   /vc_search.php          — страница «Поиск» (форма отправляет запрос на внешний поисковик)
+#
+# Старые адреса страниц (в корне, с префиксами articles_/redactor_/source_/translate_/section_,
+# а также имена в верхнем регистре) отвечают 301-редиректом на актуальные — закрывать их не нужно:
+# робот один раз получит редирект и уйдёт на существующую страницу.
+# Карты сайта (sitemap.xml) пока нет, поэтому директивы Sitemap нет; когда появится — добавить
+# строку «Sitemap: https://vampirecommunity.ru/sitemap.xml».
+
 User-agent: *
-Disallow:
+Allow: /
+
+# --- служебное и черновое в статике ---
+
+# «/index.html» — тот же документ, что и корень сайта «/»: оставляем в индексе только «/»
+Disallow: /index.html
+# страница поиска: собственного контента нет, а GET-параметры (?q=, ?enc=) порождают дубли адресов
+Disallow: /vc_search.php
+# черновые страницы старого дизайна и тестовые файлы — ссылок на них ниоткуда нет
+Disallow: /other/testpage.html
+Disallow: /other/example.html
+Disallow: /articles/a999_test5.html
+Disallow: /articles/a999_test6.html
+Disallow: /css/test_css.css
+# служебные файлы репозитория (для публичной копии, где корень репозитория совпадает с корнем сайта)
+Disallow: /README.md
+Disallow: /.git/
+
+# --- форум: служебные экраны и дубли ---
+
+# «?action=…» — вход, регистрация, восстановление пароля, профили, поиск, ЛС, «непрочитанное»,
+# печать темы, выгрузка вложений и прочие сервисные страницы. Символ «*» в правиле нужен потому,
+# что клиенту без cookie SMF дописывает в ссылки идентификатор сессии (?PHPSESSID=…&action=…).
+Disallow: /*action=
+# те же страницы в упрощённом оформлении для мобильных: wap, wap2, imode
+Disallow: /*wap
+Disallow: /*imode
+# «вся тема одной страницей» и сортировка списка раздела — дубли обычных адресов
+Disallow: /*;all
+Disallow: /*;sort=
+# ссылка на отдельное сообщение (?topic=N.msgNNN и /topic,N.msgNNN.html) — тот же текст темы
+Disallow: /*.msg
+
+# --- форум: технические каталоги и служебные файлы (не контент сайта) ---
+
+Disallow: /forum/Sources/
+Disallow: /forum/Themes/
+Disallow: /forum/Packages/
+Disallow: /forum/Smileys/
+Disallow: /forum/avatars/
+Disallow: /forum/videos/
+Disallow: /forum/cache/
+Disallow: /forum/attachments/
+Disallow: /forum/readme.html
+Disallow: /forum/news_readme.html
+Disallow: /forum/license.txt
+Disallow: /forum/agreement.txt
+Disallow: /forum/agreement.russian-utf8.txt
+# ручные копии файлов ядра SMF, лежащие в каталоге форума рядом с рабочими
+Disallow: /*~
+Disallow: /*_bak.php
+Disallow: /*.bak
+
+# --- параметры, не влияющие на содержимое страницы ---
+
+# Ссылки форума для клиента без cookie содержат идентификатор сессии: без этой строки каждый
+# такой адрес выглядит для Яндекса отдельной страницей-дублем. Директиву понимает только Яндекс,
+# остальные роботы её игнорируют (по документации Яндекса она действует вне секций).
+Clean-param: PHPSESSID /forum/
+
+# --- роботы, которые не приносят посетителей и нагружают небольшой сервер ---
+# Это аналитические и SEO-краулеры, а не поисковые системы. Если понадобится их статистика —
+# удалить группу целиком.
+
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: BLEXBot
+User-agent: DataForSeoBot
+User-agent: Bytespider
+User-agent: PetalBot
+User-agent: MauiBot
+Disallow: /
+
+# Директиву Crawl-delay не указываем: Яндекс перестал её учитывать 22.02.2018, Google не учитывал
+# никогда, а обход статики этому сайту ничего не стоит.
