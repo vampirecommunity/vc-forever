@@ -14,7 +14,7 @@ AddType application/x-httpd-php .html
 # перенос страниц источников в articles/sources/ (с уборкой префикса «source_»),
 # перенос страниц переводчиков в articles/translators/ (с уборкой префикса «translate_»),
 # объединение страниц авторов (Zero/Zerochan) и редакторов (Tadozumoru/Dark Iron).
-# Замена страницы поиска: `vc_search.php` → `search.html` (клиентский поиск, сам PHP-файл убран в `other/`).
+# Замена страницы поиска: `vc_search.php` → `search/index.html` (клиентский поиск, сам PHP-файл убран в `other/`).
 # Промежуточные адреса страниц разделов (/articles/sections/section_<имя>.html, жили
 # 14–15.10.2026) тоже ведут в один переход на новые имена.
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
@@ -959,10 +959,12 @@ Redirect permanent /translate_xell.html /articles/translators/xell.html
 Redirect permanent /translate_yazoo.html /articles/translators/yazoo.html
 Redirect permanent /translate_yliana.html /articles/translators/yliana.html
 
-# --- поиск: страница vc_search.php заменена статической search.html (добавлено 15.10.2026) ---
-# Поиск теперь клиентский: search.html + vc-search-meta.js / vc-search-index.js (+ vc-search.js,
-# vc-search-page.js), без внешних сервисов. Сам PHP-файл убран из корня в /other/vc_search.php
-# (ссылок с сайта на него нет, в robots.txt закрыт). Старый адрес страницы поиска перенаправляем,
-# чтобы работали закладки и ссылки из поисковиков.
-Redirect permanent /vc_search.php /search.html
+# --- поиск: страница vc_search.php заменена статической search/index.html (добавлено 15.10.2026) ---
+# Поиск теперь клиентский, все его файлы лежат в каталоге /search/ (index.html + vc-search-*.js),
+# без внешних сервисов. Сам PHP-файл убран из корня в /other/vc_search.php (ссылок с сайта на него
+# нет, в robots.txt закрыт). Старые адреса перенаправляем, чтобы работали закладки и ссылки
+# из поисковиков: прежний /vc_search.php и промежуточный /search.html (жил несколько часов
+# в рамках этой же правки).
+Redirect permanent /vc_search.php /search/index.html
+Redirect permanent /search.html /search/index.html
 

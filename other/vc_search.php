@@ -1,8 +1,8 @@
 <?php
 /* Старая страница поиска: форма уходила во внешний поисковик (DuckDuckGo, site:vampirecommunity.ru).
-   С 15.10.2026 заменена статической страницей /search.html — поиск идёт локально, в браузере,
+   С 15.10.2026 заменена статической страницей /search/index.html — поиск идёт локально, в браузере,
    без внешних сервисов. Файл убран из корня в /other/ «про запас»: ссылок на него с сайта нет,
-   адрес /vc_search.php отдаёт 301 на /search.html (см. .htaccess), в robots.txt закрыт. */
+   адрес /vc_search.php отдаёт 301 на /search/index.html (см. .htaccess), в robots.txt закрыт. */
 $site_id = "vcsearch";
 $default_enc = "UTF-8";
 
@@ -59,7 +59,7 @@ header("Content-Type: text/html; charset=" . $enc);
 						<b><a href="../primary/community.html"><b>VC</b>Авторизация</a></b>
 						<a href="../home.html"><b>Main</b>На главную</a>
 						<br />
-						<i><a href="../search.html"><b>Search</b>Поиск</a></i>
+						<i><a href="../search/index.html"><b>Search</b>Поиск</a></i>
 					</ol>
 					
 					<br />
@@ -96,7 +96,7 @@ header("Content-Type: text/html; charset=" . $enc);
 </form>
 
 <p>
-Страница не используется: актуальный поиск — <a href="../search.html">search.html</a>
+Страница не используется: актуальный поиск — <a href="../search/index.html">/search/index.html</a>
 (ищет по названиям и текстам страниц сайта локально, в браузере, без внешних сервисов).
 </p>
 

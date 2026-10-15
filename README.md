@@ -24,7 +24,8 @@
 
 | Что | Файлов | Назначение |
 |---|---|---|
-| `*.html` в корне | 3 | страницы в корне — `home.html`, `index.html` и `search.html` (страница поиска); статьи, страницы разделов, исследования, творчества, авторов, редакторов, переводчиков и источников, «основные» и «прочие» страницы вынесены в подкаталоги |
+| `*.html` в корне | 2 | страницы в корне — `home.html` и `index.html`; статьи, страницы разделов, исследования, творчества, авторов, редакторов, переводчиков и источников, «основные» и «прочие» страницы вынесены в подкаталоги |
+| `search/` | 5 | страница поиска `index.html` (открывается и как `/search/`) и файлы поиска: `vc-search.js` (поиск и ранжирование), `vc-search-page.js` (форма, `?q=`, вывод), `vc-search-meta.js` (лёгкий индекс) и `vc-search-index.js` (полнотекстовый индекс; оба индекса собирает `_tools/vc-search-build.py`) |
 | `primary/` | 15 | «основные» страницы сайта: `about_vc`, `archive`, `banner_ex`, `community`, `contact`, `copyright`, `download`, `enter`, `glossary`, `links`, `responsibility`, `sigil`, `society`, `support`, `understanding_vc` |
 | `other/` | 15 | «прочие» страницы: `calendarium`, `discord-tests`, `enter_chat`, `example`, `forum`, `jabber`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `testpage`, `translator`, `vampshop`, `vc_jabber_faq`, плюс убранная из корня прежняя страница поиска `vc_search.php` (не используется) |
 | `articles/` | 637 | статьи `a<номер>_<имя>.html` (385), страницы авторов в `articles/authors/` (117), страницы редакторов в `articles/editors/` (32), страницы переводчиков в `articles/translators/` (66), страницы источников в `articles/sources/` (19), индекс-страницы раздела в `articles/control/` (3) и страницы разделов «Статьи / сортировка» в `articles/sections/` (15) |
@@ -35,7 +36,7 @@
 | `smiles/` | 24 | смайлы для страниц |
 | `css/` | 10 | стили: исторические `1.css`…`6.css` + `vc.css`, `rd.css`, `rt.css`, `test_css.css` |
 | `files/` | 6 | вложения: методики и опросники (VEWRS, WBD, FMBA…) в PDF/DOC/ZIP |
-| служебное | 8 | `favicon.ico`, `robots.txt`, `.htaccess`, `README.md` и файлы поиска: `search.html` в корне, `vc-search.js` (поиск), `vc-search-page.js` (страница), `vc-search-meta.js` и `vc-search-index.js` (индексы, собираются `_tools/vc-search-build.py`) |
+| служебное | 4 | `favicon.ico`, `robots.txt`, `.htaccess`, `README.md` |
 
 ## Структура
 
@@ -47,9 +48,11 @@
 vc-forever/
 ├── index.html        — входная страница: подтверждение 18+ и ссылка «Войти на Сайт» → home.html
 ├── home.html         — главная сайта: боковое меню (#sidebar > ol#nav) + контент, стиль css/5.css
-├── search.html       — страница поиска: поиск идёт в браузере по индексу vc-search-meta.js и
-│                       vc-search-index.js (внешних сервисов нет), логика — vc-search.js
-│                       и vc-search-page.js
+├── search/           — страница поиска и её файлы: `index.html` (сама страница, на сервере
+│                       открывается и как `/search/`), `vc-search.js` (поиск и ранжирование),
+│                       `vc-search-page.js` (форма, `?q=`, вывод результатов), `vc-search-meta.js`
+│                       (лёгкий индекс) и `vc-search-index.js` (полнотекстовый индекс; оба индекса
+│                       собирает `_tools/vc-search-build.py`)
 ├── primary/          — 15 «основных» страниц сайта: `about_vc.html`, `archive.html`, `banner_ex.html`,
 │                       `community.html`, `contact.html`, `copyright.html`, `download.html`,
 │                       `enter.html`, `glossary.html`, `links.html`, `responsibility.html`,
@@ -103,7 +106,7 @@ vc-forever/
 │                       VEWRS.doc, VEWRS-Survey-Russian.pdf, WBD.pdf
 ├── favicon.ico       — иконка сайта
 ├── robots.txt        — правила обхода для поисковиков
-├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 909 правил
+├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 910 правил
 │                       301-редиректа со старых адресов на актуальные (перенос статей в `articles/`,
 │                       перенос страниц авторов в `articles/authors/`, объединение страниц авторов
 │                       (Zero/Zerochan), перенос страниц редакторов в `articles/editors/`
@@ -116,17 +119,13 @@ vc-forever/
 │                       «основных» страниц в `primary/` и «прочих» в `other/`,
 │                       приведение имён к lowercase, переименования по никам); для локального просмотра
 │                       файлов в браузере не требуется
-├── vc-search.js      — поиск и ранжирование (ES5, без зависимостей)
-├── vc-search-page.js — обвязка страницы поиска: форма, ?q=, вывод результатов
-├── vc-search-meta.js — лёгкий индекс: адреса, заголовки, категории, лиды 787 страниц
-├── vc-search-index.js — полнотекстовый индекс по началам слов (подгружается фоном)
 └── README.md         — этот файл
 ```
 
 ### Группы страниц (по префиксу имени файла)
 
 Именование историческое, но устойчивое: по префиксу видно, к какому разделу относится страница.
-В корне **3 `.html`** (`home`, `index`, `search`), ещё **385 статей** — в каталоге `articles/` (страницы авторов — в
+В корне **2 `.html`** (`home`, `index`), страница поиска — в каталоге `search/`, ещё **385 статей** — в каталоге `articles/` (страницы авторов — в
 `articles/authors/`, страницы редакторов — в `articles/editors/`, страницы переводчиков — в
 `articles/translators/`, страницы источников — в
 `articles/sources/`, индекс-страницы раздела — в
@@ -148,9 +147,10 @@ vc-forever/
 | `articles/editors/*.html` | 32 | раздел «Статьи»: страницы по редакторам — вынесены в каталог `articles/editors/`, из имён убран исторический префикс `redactor_` (`redactor_abyah.html` → `articles/editors/abyah.html`); 24 прежние страницы + 9 новых редакторов, из которых две (Tadozumoru и Dark Iron — один человек) объединены в одну |
 | `articles/translators/*.html` | 66 | раздел «Статьи»: страницы по переводчикам — вынесены в каталог `articles/translators/`, из имён убран исторический префикс `translate_` (`translate_abyah.html` → `articles/translators/abyah.html`); 60 прежних страниц + 6 новых переводчиков (`Адальмунд`, `Andali`, `Эмильяна`, `IALima.M.OR.`, `Ksenia Led`, `u1035`); состав синхронизируется с меткой `<b>Перевод:</b>` статей, ссылки — из раздела «По переводчикам» листинга `articles/control/sort.html` |
 | `articles/sources/*.html` | 19 | раздел «Статьи»: страницы по источникам материала (внешние сайты и сообщества) — вынесены в каталог `articles/sources/`, из имён убран исторический префикс `source_` (`source_kheperu.html` → `articles/sources/kheperu.html`); 16 прежних страниц + 3 новых источника (`VCMB.org`, `RealVampireNews.com`, `EverydayHealth.com`); состав синхронизируется с меткой `<b>Источник:</b>` статей, ссылки — из раздела «По источникам» листинга `articles/control/sort.html` |
-| прочее | 3 | отдельные страницы в корне: `home`, `index` и `search` (страница поиска) |
+| прочее | 2 | отдельные страницы в корне: `home`, `index` |
+| `search/index.html` | 1 | страница поиска: поиск идёт в браузере по индексу из того же каталога, без внешних сервисов |
 
-Совпадение по сумме: 385 (`articles/`) + 117 (`articles/authors/`) + 32 (`articles/editors/`) + 66 (`articles/translators/`) + 19 (`articles/sources/`) + 3 (`articles/control/`) + 15 (`articles/sections/`) + 26 (`research/`) + 97 (`art/`) + 15 (`primary/`) + 14 (`other/`) + 3 (прочее) = 792.
+Совпадение по сумме: 385 (`articles/`) + 117 (`articles/authors/`) + 32 (`articles/editors/`) + 66 (`articles/translators/`) + 19 (`articles/sources/`) + 3 (`articles/control/`) + 15 (`articles/sections/`) + 26 (`research/`) + 97 (`art/`) + 15 (`primary/`) + 14 (`other/`) + 2 (прочее) + 1 (`search/`) = 792.
 
 ### Как устроены страницы
 
@@ -211,10 +211,13 @@ vc-forever/
 
 ### Поиск по сайту
 
-- Страница поиска — `search.html` (такой же статический XHTML, как остальные страницы): поиск идёт
-  **в браузере**, без внешних сервисов. Работает и на сайте, и при открытии файла с диска (`file://`).
+- Страница поиска — `search/index.html` (такой же статический XHTML, как остальные страницы; на сервере
+  каталог открывается и как `/search/`): поиск идёт **в браузере**, без внешних сервисов. Работает и на
+  сайте, и при открытии файла с диска (`file://`).
+- Все файлы поиска лежат рядом, в каталоге `search/`: `index.html`, `vc-search.js`, `vc-search-page.js`,
+  `vc-search-meta.js`, `vc-search-index.js`.
 - Две ступени загрузки: сразу подключается `vc-search-meta.js` — адреса, заголовки, категории и лиды
-  **787 страниц** (≈0,1 МБ gzip), по ним мгновенно работает поиск по названиям; затем фоном
+  **786 страниц** (≈0,1 МБ gzip), по ним мгновенно работает поиск по названиям; затем фоном
   подгружается `vc-search-index.js` — полнотекстовый индекс по началам слов (≈0,6 МБ gzip), после
   чего результаты уточняются автоматически.
 - Логика: `vc-search.js` (разбор индекса, поиск, ранжирование, подсветка; ES5, без библиотек)
@@ -226,10 +229,10 @@ vc-forever/
   исследованию и справочным страницам; форум SMF в индекс не входит (у него свой поиск) — ссылка на него
   есть на странице поиска.
 - Индекс собирается `_tools/vc-search-build.py` (только stdlib, детерминированно: в рабочей и публичной
-  копиях файлы получаются побайтово одинаковыми). Служебные и черновые страницы (`index.html`,
-  `a999_test*`, `testpage`, `example`) в индекс не попадают — как и в `robots.txt`.
+  копиях файлы получаются побайтово одинаковыми; сама страница поиска в индекс не попадает). Служебные
+  и черновые страницы (`index.html`, `a999_test*`, `testpage`, `example`) тоже вне индекса — как и в `robots.txt`.
 - Прежняя страница `vc_search.php` (форма уходила во внешний поисковик) убрана из корня в `other/`
-  и не используется; адрес `/vc_search.php` отдаёт 301 на `/search.html`.
+  и не используется; адреса `/vc_search.php` и `/search.html` отдают 301 на `/search/index.html`.
 
 ### Чего в этой копии нет
 
@@ -243,5 +246,5 @@ vc-forever/
   форумы (torrents.ru, atlantavampirealliance.com), это внешние источники.
 - **Админки, серверных конфигов и docker-обвязки** — только файлы самого сайта.
 - `other/vc_search.php` — прежняя (не используемая) страница поиска на PHP: она убрана из корня
-  «про запас», работала через внешний поисковик и больше не нужна. Актуальный поиск — `search.html`,
+  «про запас», работала через внешний поисковик и больше не нужна. Актуальный поиск — `search/index.html`,
   он статический и работает прямо из файлов, как и остальные страницы сайта.
