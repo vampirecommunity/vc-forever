@@ -5,14 +5,16 @@ AddType application/x-httpd-php .html
 # --- 301-редиректы на актуальные адреса (добавлено 13.10.2026, дополнено 14.10.2026 и 15.10.2026) ---
 # Старые адреса страниц перенаправляются на текущие файлы: перенос статей в каталог
 # articles/, перенос индекс-страниц раздела «Статьи» в articles/control/ и страниц-разделов
-# («сортировка» по разделам) — в articles/sections/, перенос страниц исследования (включая
-# описания: FAQ и типы личности) в каталог research/, перенос страниц творчества в каталог art/,
-# перенос «основных» страниц сайта в primary/ и «прочих» — в other/,
+# («сортировка» по разделам) — в articles/sections/ (с уборкой префикса «section_»), перенос
+# страниц исследования (включая описания: FAQ и типы личности) в каталог research/, перенос
+# страниц творчества в каталог art/, перенос «основных» страниц сайта в primary/ и «прочих» — в other/,
 # приведение имён страниц к lowercase, переименования по никам,
 # перенос страниц авторов в articles/authors/ (с уборкой префикса «articles_»),
 # перенос страниц редакторов в articles/editors/ (с уборкой префикса «redactor_»),
 # перенос страниц источников в articles/sources/ (с уборкой префикса «source_»),
 # объединение страниц авторов (Zero/Zerochan) и редакторов (Tadozumoru/Dark Iron).
+# Промежуточные адреса страниц разделов (/articles/sections/section_<имя>.html, жили
+# 14–15.10.2026) тоже ведут в один переход на новые имена.
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
 
 # 1) статьи вынесены в каталог articles/
@@ -534,22 +536,22 @@ Redirect permanent /articles_LIST.html /articles/control/list.html
 Redirect permanent /articles_SORT.html /articles/control/sort.html
 Redirect permanent /articles_UPDATES.html /articles/control/update.html
 
-# 5) страницы разделов раздела «Статьи» вынесены в каталог articles/sections/
-Redirect permanent /section_archive.html /articles/sections/section_archive.html
-Redirect permanent /section_blood.html /articles/sections/section_blood.html
-Redirect permanent /section_donors.html /articles/sections/section_donors.html
-Redirect permanent /section_energy.html /articles/sections/section_energy.html
-Redirect permanent /section_main.html /articles/sections/section_main.html
-Redirect permanent /section_meditation.html /articles/sections/section_meditation.html
-Redirect permanent /section_other.html /articles/sections/section_other.html
-Redirect permanent /section_otherkins.html /articles/sections/section_otherkins.html
-Redirect permanent /section_sangs.html /articles/sections/section_sangs.html
-Redirect permanent /section_seekers.html /articles/sections/section_seekers.html
-Redirect permanent /section_sleep.html /articles/sections/section_sleep.html
-Redirect permanent /section_socio.html /articles/sections/section_socio.html
-Redirect permanent /section_some.html /articles/sections/section_some.html
-Redirect permanent /section_somn.html /articles/sections/section_somn.html
-Redirect permanent /section_style.html /articles/sections/section_style.html
+# 5) страницы разделов раздела «Статьи» вынесены в каталог articles/sections/ (префикс «section_» убран из имён)
+Redirect permanent /section_archive.html /articles/sections/archive.html
+Redirect permanent /section_blood.html /articles/sections/blood.html
+Redirect permanent /section_donors.html /articles/sections/donors.html
+Redirect permanent /section_energy.html /articles/sections/energy.html
+Redirect permanent /section_main.html /articles/sections/main.html
+Redirect permanent /section_meditation.html /articles/sections/meditation.html
+Redirect permanent /section_other.html /articles/sections/other.html
+Redirect permanent /section_otherkins.html /articles/sections/otherkins.html
+Redirect permanent /section_sangs.html /articles/sections/sangs.html
+Redirect permanent /section_seekers.html /articles/sections/seekers.html
+Redirect permanent /section_sleep.html /articles/sections/sleep.html
+Redirect permanent /section_socio.html /articles/sections/socio.html
+Redirect permanent /section_some.html /articles/sections/some.html
+Redirect permanent /section_somn.html /articles/sections/somn.html
+Redirect permanent /section_style.html /articles/sections/style.html
 
 # 6) основные страницы сайта вынесены в каталог primary/
 Redirect permanent /about_vc.html /primary/about_vc.html
@@ -869,3 +871,20 @@ Redirect permanent /source_suscitatio.html /articles/sources/suscitatio.html
 Redirect permanent /source_twilightpath.html /articles/sources/twilightpath.html
 Redirect permanent /source_vampirecommunity.html /articles/sources/vampirecommunity.html
 Redirect permanent /source_vcmb.html /articles/sources/vcmb.html
+
+# 15) промежуточные адреса страниц разделов в articles/sections/ (до уборки префикса «section_»)
+Redirect permanent /articles/sections/section_archive.html /articles/sections/archive.html
+Redirect permanent /articles/sections/section_blood.html /articles/sections/blood.html
+Redirect permanent /articles/sections/section_donors.html /articles/sections/donors.html
+Redirect permanent /articles/sections/section_energy.html /articles/sections/energy.html
+Redirect permanent /articles/sections/section_main.html /articles/sections/main.html
+Redirect permanent /articles/sections/section_meditation.html /articles/sections/meditation.html
+Redirect permanent /articles/sections/section_other.html /articles/sections/other.html
+Redirect permanent /articles/sections/section_otherkins.html /articles/sections/otherkins.html
+Redirect permanent /articles/sections/section_sangs.html /articles/sections/sangs.html
+Redirect permanent /articles/sections/section_seekers.html /articles/sections/seekers.html
+Redirect permanent /articles/sections/section_sleep.html /articles/sections/sleep.html
+Redirect permanent /articles/sections/section_socio.html /articles/sections/socio.html
+Redirect permanent /articles/sections/section_some.html /articles/sections/some.html
+Redirect permanent /articles/sections/section_somn.html /articles/sections/somn.html
+Redirect permanent /articles/sections/section_style.html /articles/sections/style.html
