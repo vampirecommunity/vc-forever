@@ -75,8 +75,8 @@ vc-forever/
 │   │                   `articles_LIST.html`), `sort.html` (бывший `articles_SORT.html`),
 │   │                   `update.html` (бывший `articles_UPDATES.html`)
 │   └── sections/     — 15 страниц разделов «Статьи / сортировка» (бывшие `section_*.html`
-│                       из корня): `section_main.html`, `section_some.html`,
-│                       `section_sangs.html`, `section_energy.html`, `section_blood.html`, …;
+│                       из корня, префикс `section_` убран из имён): `main.html`, `some.html`,
+│                       `sangs.html`, `energy.html`, `blood.html`, …;
 │                       состав каждой страницы повторяет одноимённый блок `<h3>` листинга
 │                       `articles/control/list.html`
 ├── research/         — 26 страниц исследования: `research.html`, `research_results.html`,
@@ -94,14 +94,14 @@ vc-forever/
 │                       VEWRS.doc, VEWRS-Survey-Russian.pdf, WBD.pdf
 ├── favicon.ico       — иконка сайта
 ├── robots.txt        — правила обхода для поисковиков
-├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 827 правил
+├── .htaccess         — правила Apache для каталога: `.html` отдаются через PHP и 842 правила
 │                       301-редиректа со старых адресов на актуальные (перенос статей в `articles/`,
 │                       перенос страниц авторов в `articles/authors/`, объединение страниц авторов
 │                       (Zero/Zerochan), перенос страниц редакторов в `articles/editors/`
 │                       с объединением страниц редакторов (Tadozumoru/Dark Iron), перенос страниц
 │                       источников в `articles/sources/`, перенос индекс-страниц
 │                       раздела «Статьи» в `articles/control/` и страниц
-│                       разделов в `articles/sections/`, перенос страниц
+│                       разделов в `articles/sections/` (с уборкой префикса `section_`), перенос страниц
 │                       исследования в `research/`, перенос страниц творчества в `art/`, перенос
 │                       «основных» страниц в `primary/` и «прочих» в `other/`,
 │                       приведение имён к lowercase, переименования по никам); для локального просмотра
@@ -125,7 +125,7 @@ vc-forever/
 |---|---|---|
 | `articles/a<номер>_*.html` | 385 | статьи, сквозная нумерация `a1_` … `a383_` (без пропусков) + тестовые `a999_test5.html`, `a999_test6.html` |
 | `articles/control/*.html` | 3 | индекс-страницы раздела «Статьи», вынесены в каталог `articles/control/` и переименованы: `list.html` (бывший `articles_LIST.html`), `sort.html` (`articles_SORT.html`), `update.html` (`articles_UPDATES.html`) |
-| `articles/sections/*.html` | 15 | «Статьи / сортировка» по разделам (бывшие `section_*.html` из корня), вынесены в каталог `articles/sections/` с теми же именами: `main`, `some`, `sangs`, `energy`, `donors`, `seekers`, `blood`, `socio`, `style`, `otherkins`, `sleep`, `meditation`, `other`, `somn`, `archive`; ссылки на них — из `articles/control/sort.html` |
+| `articles/sections/*.html` | 15 | «Статьи / сортировка» по разделам (бывшие `section_*.html` из корня), вынесены в каталог `articles/sections/`, исторический префикс `section_` убран из имён (`section_main.html` → `articles/sections/main.html`): `main`, `some`, `sangs`, `energy`, `donors`, `seekers`, `blood`, `socio`, `style`, `otherkins`, `sleep`, `meditation`, `other`, `somn`, `archive`; ссылки на них — из `articles/control/sort.html` |
 | `research/*.html` | 26 | раздел «Исследование», вынесен в каталог `research/`: входные `research.html`, `research_results.html`, волны результатов (`r1_*` — первые, `r2_*` — вторые, `r3_*` — третьи) и описания `research_faq` + типов личности (`research_enfj`, `research_enfp`, `research_infp`, `research_intj`) |
 | `art/*.html` | 97 | раздел «Творчество», вынесен в каталог `art/`: страница `art.html`, 35 персональных подборок авторов `art<N>_<автор>*.html` (суффиксы `_poetry` 11, `_prose` 7, `_photo`, `_pictures`) и 61 файл сборников конкурсных работ `compilation*` (`compilationN_<тема>.html` — 11 оглавлений, `compilationN_workM.html` — 50 работ) |
 | `primary/*.html` | 15 | «основные» страницы сайта, вынесены в каталог `primary/`: `about_vc`, `archive`, `banner_ex`, `community`, `contact`, `copyright`, `download`, `enter`, `glossary`, `links`, `responsibility`, `sigil`, `society`, `support`, `understanding_vc` |
@@ -147,8 +147,8 @@ vc-forever/
 - Навигация — боковое меню `ol#nav` в `#sidebar` (пример: `home.html`), плюс фрагмент `other/mainmenu.html`.
 - Раздел «Статьи» держится на перекрёстных индексах-«сортировках»: по авторам
   (`articles/authors/*.html`), редакторам (`articles/editors/*.html`), переводчикам (`translate_*`),
-  источникам (`articles/sources/*.html`) и разделам (`articles/sections/section_*.html`).
-- Страницы разделов (`articles/sections/section_*.html`, ссылки на них — из `articles/control/sort.html`)
+  источникам (`articles/sources/*.html`) и разделам (`articles/sections/*.html`).
+- Страницы разделов (`articles/sections/*.html`, ссылки на них — из `articles/control/sort.html`)
   содержат те же списки, что и блоки `<h3>Раздел</h3>` листинга `articles/control/list.html`;
   при добавлении статьи их состав обновляют из листинга.
 - Страницы авторов (`articles/authors/*.html`, ссылки — из раздела «По авторам» листинга `sort.html`)
