@@ -244,9 +244,10 @@ vc-forever/
 ### Чего в этой копии нет
 
 - **Форума** — он живёт отдельно (PHP + база данных) и в публичную копию не входит. На живой форум
-  ссылаются **8 страниц** абсолютными адресами вида `https://vampirecommunity.ru/forum/index.php…`
+  ссылаются **9 страниц** абсолютными адресами вида `https://vampirecommunity.ru/forum/index.php…`
   (`articles/a353_batenka_transformer.html`, `articles/a364_ria_news.html`, `art/art.html`, `primary/community.html`,
-  `research/research.html`, `research/research_results.html`, `home.html`, а также `primary/archive.html` — на старый
+  `research/research.html`, `research/research_results.html`, `home.html`, `search/index.html` — на форумный
+  поиск, а также `primary/archive.html` — на старый
   `vampirecommunity.forumbb.ru`), поэтому локально такие ссылки ведут на живой сайт, а не в
   локальную папку. Ещё `other/mainmenu.html` ведёт на локальный `other/forum.html` (meta-refresh на
   `primary/community.html`), а `articles/a18_blood_und.html` и `articles/a374_ovc_history_sangs_vs_energo.html` — на чужие
