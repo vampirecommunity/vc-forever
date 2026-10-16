@@ -200,6 +200,13 @@ vc-forever/
   `_tools/vc-translators-content.py --apply` (новый переводчик из статей получает страницу и запись
   в `sort.html` автоматически). Значение `© [BDSM-HowTo.ru]` (статья a104 — перевод с сайта, а не
   человек) страницы переводчика не получает.
+- Блок атрибуции в конце статьи (`<b>Автор:</b>`/`<b>Авторы:</b>`, метка со словом «Редактирование»,
+  `<b>Источник:</b>`, метка со словом «Перевод») оформлен активными ссылками на страницы разделов:
+  автор — `articles/authors/<файл>.html`, редактор — `articles/editors/<файл>.html`, источник —
+  `articles/sources/<файл>.html` (разовые источники — `articles/sources/other.html`), переводчик —
+  `articles/translators/<файл>.html`. Ссылкой становится ровно текст атрибуции, поэтому видимая
+  строка не меняется; ники берутся из тех же карт, что у content-инструментов; синхронизация —
+  `_tools/vc-credits-links.py --apply` (идемпотентно, проверка — `--verify --baseline origin/main`).
 - Новая статья = файл `a<следующий номер>_<краткое_имя>.html` в каталоге `articles/` (последняя на 25.09.2026 —
   `articles/a383_vc_history_origins.html`), плюс ссылка в листинге `articles/control/list.html` (блок «Новинки»
   и сводный список раздела) и запись в журнале обновлений `articles/control/update.html`. Листинг
@@ -237,9 +244,10 @@ vc-forever/
 ### Чего в этой копии нет
 
 - **Форума** — он живёт отдельно (PHP + база данных) и в публичную копию не входит. На живой форум
-  ссылаются **8 страниц** абсолютными адресами вида `https://vampirecommunity.ru/forum/index.php…`
+  ссылаются **9 страниц** абсолютными адресами вида `https://vampirecommunity.ru/forum/index.php…`
   (`articles/a353_batenka_transformer.html`, `articles/a364_ria_news.html`, `art/art.html`, `primary/community.html`,
-  `research/research.html`, `research/research_results.html`, `home.html`, а также `primary/archive.html` — на старый
+  `research/research.html`, `research/research_results.html`, `home.html`, `search/index.html` — на форумный
+  поиск, а также `primary/archive.html` — на старый
   `vampirecommunity.forumbb.ru`), поэтому локально такие ссылки ведут на живой сайт, а не в
   локальную папку. Ещё `other/mainmenu.html` ведёт на локальный `other/forum.html` (meta-refresh на
   `primary/community.html`), а `articles/a18_blood_und.html` и `articles/a374_ovc_history_sangs_vs_energo.html` — на чужие
