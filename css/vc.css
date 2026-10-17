@@ -4,6 +4,15 @@ body {
 	word-spacing:2px;
 	color:#545454;
 	margin:0;
+	/* «Прижатый» подвал. Страница — flex-строка с переносом: #sidebar и #content
+	   встают рядом в первой строке, #footer (width:100%) уезжает во вторую и
+	   поджимается к низу окна своим автоотступом (margin-top:auto). Если контента
+	   больше экрана, свободного места нет — подвал, как и раньше, идёт сразу за
+	   содержимым. Поэтому страницам с малым количеством текста больше не нужны
+	   десятки <br />, которыми раньше «подгоняли» низ страницы. */
+	display:flex;
+	flex-wrap:wrap;
+	min-height:100vh;
 }
 
 * {
@@ -77,6 +86,9 @@ blockquote p {
 	background:url(../images/sidebar.jpg) top left no-repeat;
 	float:left;
 	padding:20px 20px 50px 20px;
+	/* как и раньше: сайдбар (263px + отступы = 303px) на 3px заходил на левый отступ
+	   контента (margin-left:300px) — в flex-строке поджимаем его на эти 3px */
+	margin-right:-3px;
 }
 
 #sidebar p {
@@ -163,9 +175,20 @@ ol li {
 }
 
 #content {
-	margin:0 10% 0 300px;
+	margin:0 10% 50px 300px;	/* 50px снизу — прежде это был margin-top подвала */
 	background:url(../images/content.jpg) top left no-repeat;
 	padding:20px;
+	flex:1 1 0;		/* занимает остаток строки (сайдбар — своей шириной) */
+	min-width:0;		/* и не расширяется под широкие картинки/таблицы — переливаются, как раньше */
+}
+
+/* В flex-раскладке (см. body) сайдбар сам занимает место в строке, поэтому отступ под
+   него контенту не нужен — иначе колонка уехала бы вправо и стала уже. В браузерах без
+   flex остаётся классический обтекающий float и отступ, как было. */
+@supports (display:flex) {
+	#content {
+		margin-left:0;
+	}
 }
 
 #content ul {
@@ -193,5 +216,7 @@ ol li {
 	padding:30px;
 	text-align:center;
 	border-top:3px solid #333;
-	margin:50px 0 0 0;
+	margin:auto 0 0 0;	/* автоотступ: свободное место уходит над подвалом (см. body) */
 	background:#000;
+	width:100%;		/* подвал — всегда своя строка flex-контейнера */
+}
