@@ -34,7 +34,7 @@ AddDefaultCharset UTF-8
 # перенос страниц источников в articles/sources/ (с уборкой префикса «source_»),
 # перенос страниц переводчиков в articles/translators/ (с уборкой префикса «translate_»),
 # объединение страниц авторов (Zero/Zerochan) и редакторов (Tadozumoru/Dark Iron).
-# Замена страницы поиска: `vc_search.php` → `search/index.html` (клиентский поиск, сам PHP-файл убран в `other/`).
+# Замена страницы поиска: `vc_search.php` → `search/index.html` (клиентский поиск, сам PHP-файл удалён 23.10.2026).
 # Промежуточные адреса страниц разделов (/articles/sections/section_<имя>.html, жили
 # 14–15.10.2026) тоже ведут в один переход на новые имена.
 # Правки вносить осторожно: синтаксическая ошибка в этом файле ломает весь сайт.
@@ -981,11 +981,12 @@ Redirect permanent /translate_yliana.html /articles/translators/yliana.html
 
 # --- поиск: страница vc_search.php заменена статической search/index.html (добавлено 15.10.2026) ---
 # Поиск теперь клиентский, все его файлы лежат в каталоге /search/ (index.html + vc-search-*.js),
-# без внешних сервисов. Сам PHP-файл убран из корня в /other/vc_search.php (ссылок с сайта на него
-# нет, в robots.txt закрыт). Старые адреса перенаправляем, чтобы работали закладки и ссылки
-# из поисковиков: прежний /vc_search.php и промежуточный /search.html (жил несколько часов
-# в рамках этой же правки).
+# без внешних сервисов. Сам PHP-файл удалён 23.10.2026 (лежал в /other/ «про запас», ссылок с сайта
+# не было): на сайте PHP остаётся только под /forum/. Старые адреса перенаправляем, чтобы работали
+# закладки и ссылки из поисковиков: прежний /vc_search.php, его же адрес в /other/ и промежуточный
+# /search.html (жил несколько часов в рамках этой же правки).
 Redirect permanent /vc_search.php /search/index.html
+Redirect permanent /other/vc_search.php /search/index.html
 Redirect permanent /search.html /search/index.html
 
 # =============================================================================

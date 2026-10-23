@@ -20,14 +20,14 @@
 Это публичная копия сайта — **только статическая часть**: готовые страницы и ресурсы к ним.
 Сборщиков, CMS и баз данных нет, форум и серверная обвязка в эту копию не входят.
 
-Всего в репозитории **1894 файлов** (статистика на 15.10.2026, включает статью №383 и локальный поиск по сайту):
+Всего в репозитории **1893 файлов** (статистика на 23.10.2026, включает статью №383 и локальный поиск по сайту):
 
 | Что | Файлов | Назначение |
 |---|---|---|
 | `*.html` в корне | 2 | страницы в корне — `home.html` и `index.html`; статьи, страницы разделов, исследования, творчества, авторов, редакторов, переводчиков и источников, «основные» и «прочие» страницы вынесены в подкаталоги |
 | `search/` | 5 | страница поиска `index.html` (открывается и как `/search/`) и файлы поиска: `vc-search.js` (поиск и ранжирование), `vc-search-page.js` (форма, `?q=`, вывод), `vc-search-meta.js` (лёгкий индекс) и `vc-search-index.js` (полнотекстовый индекс; оба индекса собирает `_tools/vc-search-build.py`) |
 | `primary/` | 15 | «основные» страницы сайта: `about_vc`, `archive`, `banner_ex`, `community`, `contact`, `copyright`, `download`, `enter`, `glossary`, `links`, `responsibility`, `sigil`, `society`, `support`, `understanding_vc` |
-| `other/` | 15 | «прочие» страницы: `calendarium`, `discord-tests`, `enter_chat`, `example`, `forum`, `jabber`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `testpage`, `translator`, `vampshop`, `vc_jabber_faq`, плюс убранная из корня прежняя страница поиска `vc_search.php` (не используется) |
+| `other/` | 14 | «прочие» страницы: `calendarium`, `discord-tests`, `enter_chat`, `example`, `forum`, `jabber`, `load_banners`, `load_radio`, `mainmenu`, `photogallery`, `testpage`, `translator`, `vampshop`, `vc_jabber_faq` |
 | `articles/` | 637 | статьи `a<номер>_<имя>.html` (385), страницы авторов в `articles/authors/` (117), страницы редакторов в `articles/editors/` (32), страницы переводчиков в `articles/translators/` (66), страницы источников в `articles/sources/` (19), индекс-страницы раздела в `articles/control/` (3) и страницы разделов «Статьи / сортировка» в `articles/sections/` (15) |
 | `research/` | 26 | страницы исследования: `research.html`, `research_results.html`, волны результатов `r1_*`–`r3_*`, описания `research_faq` и типов личности (`research_enfj`, `research_enfp`, `research_infp`, `research_intj`) |
 | `art/` | 97 | раздел «Творчество»: `art.html`, персональные подборки `art<N>_<автор>*.html`, сборники `compilation*` |
@@ -61,8 +61,7 @@ vc-forever/
 │                       `enter_chat.html`, `example.html`, `forum.html` (meta-refresh на
 │                       `community.html`), `jabber.html`, `load_banners.html`, `load_radio.html`,
 │                       `mainmenu.html` (фрагмент меню, css/6.css), `photogallery.html`,
-│                       `testpage.html`, `translator.html`, `vampshop.html`, `vc_jabber_faq.html`,
-│                       `vc_search.php` (прежняя страница поиска, убрана из корня)
+│                       `testpage.html`, `translator.html`, `vampshop.html`, `vc_jabber_faq.html`
 ├── articles/         — 385 статей `a<номер>_<имя>.html` (ссылки на них — `articles/…`)
 │   ├── authors/      — 117 страниц авторов раздела «Статьи / сортировка» (бывшие
 │   │                   `articles_<автор>.html` из корня), ссылки на них — из `articles/control/sort.html`;
@@ -107,7 +106,7 @@ vc-forever/
 ├── favicon.ico       — иконка сайта
 ├── robots.txt        — правила обхода для поисковиков
 ├── .htaccess         — правила Apache для каталога: статика отдаётся напрямую (PHP в этой копии
-│                       не нужен), 910 правил
+│                       не нужен), 911 правил
 │                       301-редиректа со старых адресов на актуальные (перенос статей в `articles/`,
 │                       перенос страниц авторов в `articles/authors/`, объединение страниц авторов
 │                       (Zero/Zerochan), перенос страниц редакторов в `articles/editors/`
@@ -139,7 +138,7 @@ vc-forever/
 `articles/control/`, страницы разделов «Статьи / сортировка» — в `articles/sections/`),
 **26 страниц исследования** — в `research/`,
 **97 страниц творчества** — в `art/`, **15 «основных» страниц** — в `primary/`
-и **14 «прочих»** — в `other/` (там же лежит убранный из корня `vc_search.php`):
+и **14 «прочих»** — в `other/`:
 
 | Префикс | Кол-во | Что это |
 |---|---|---|
@@ -251,8 +250,9 @@ vc-forever/
 - Индекс собирается `_tools/vc-search-build.py` (только stdlib, детерминированно: в рабочей и публичной
   копиях файлы получаются побайтово одинаковыми; сама страница поиска в индекс не попадает). Служебные
   и черновые страницы (`index.html`, `a999_test*`, `testpage`, `example`) тоже вне индекса — как и в `robots.txt`.
-- Прежняя страница `vc_search.php` (форма уходила во внешний поисковик) убрана из корня в `other/`
-  и не используется; адреса `/vc_search.php` и `/search.html` отдают 301 на `/search/index.html`.
+- Прежняя страница `vc_search.php` (форма уходила во внешний поисковик) **удалена 23.10.2026**: она не
+  использовалась и была единственным PHP-файлом вне форума. Адреса `/vc_search.php`, `/other/vc_search.php`
+  и `/search.html` отдают 301 на `/search/index.html`.
 
 ### Чего в этой копии нет
 
@@ -266,6 +266,6 @@ vc-forever/
   `primary/community.html`), а `articles/a18_blood_und.html` и `articles/a374_ovc_history_sangs_vs_energo.html` — на чужие
   форумы (torrents.ru, atlantavampirealliance.com), это внешние источники.
 - **Админки, серверных конфигов и docker-обвязки** — только файлы самого сайта.
-- `other/vc_search.php` — прежняя (не используемая) страница поиска на PHP: она убрана из корня
-  «про запас», работала через внешний поисковик и больше не нужна. Актуальный поиск — `search/index.html`,
-  он статический и работает прямо из файлов, как и остальные страницы сайта.
+- **PHP-файлов в этой копии нет вообще** (с 23.10.2026): единственный, прежняя страница поиска
+  `vc_search.php`, удалён — она работала через внешний поисковик и больше не нужна. Актуальный поиск —
+  `search/index.html`: он статический и работает прямо из файлов, как и остальные страницы сайта.
