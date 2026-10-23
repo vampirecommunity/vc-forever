@@ -1026,3 +1026,11 @@ php_flag session.upload_progress.enabled off
 php_flag session.use_strict_mode on
 php_value session.cookie_httponly 1
 
+# 4) Потолок на размер тела запроса — 8 МиБ, ровно как post_max_size в php.ini
+#    (больше PHP всё равно не примет, так что поведение не меняется). Зато огромное тело
+#    отсекает сам Apache и не запускает разбор multipart в PHP — это один из путей к
+#    OOM-сценарию CVE-2026-109618. Проверено на образе darkfess/vc-httpd: тело
+#    8 388 608 байт доходит до PHP, 8 388 610 — уже 413; POST на статику отсекается
+#    раньше правилом <Limit> (403); вложения форума (upload_max_filesize=2M) не задеваются.
+LimitRequestBody 8388608
+
