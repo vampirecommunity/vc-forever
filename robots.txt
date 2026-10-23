@@ -18,7 +18,10 @@
 #   /research/              — исследование и его результаты
 #   /art/                   — творчество: поэзия, проза, фотогалереи
 #   /images/ /photos/ /smiles/ /css/ /files/ — картинки, фотогалерея, смайлы, стили, файлы для скачивания
-#   /forum/                 — форум SMF 2.0.15 (есть только в vc; в публичной копии форума нет)
+#   /forum/                 — форум SMF 2.0.15 (есть только в vc; в публичной копии форума нет).
+#                             С 23.10.2026 закрыт: на любой адрес отвечает 503 и заглушка
+#                             /forum-closed.html — PHP-вызовы запрещены до перехода на SMF 2.1.8
+#   /forum-closed.html      — страница-заглушка закрытого форума (техническая, в индексе не нужна)
 #   /search/index.html      — страница «Поиск»: поиск идёт в браузере по индексу vc-search-meta.js и
 #                             vc-search-index.js из этого же каталога (локально, без внешних сервисов);
 #                             рядом лежат скрипты vc-search.js и vc-search-page.js
@@ -83,6 +86,8 @@ Disallow: /forum/news_readme.html
 Disallow: /forum/license.txt
 Disallow: /forum/agreement.txt
 Disallow: /forum/agreement.russian-utf8.txt
+# страница-заглушка закрытого форума — техническая, без собственного контента
+Disallow: /forum-closed.html
 # ручные копии файлов ядра SMF, лежащие в каталоге форума рядом с рабочими
 Disallow: /*~
 Disallow: /*_bak.php

@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+<head>
+<title>Форум временно закрыт | Сообщество Вампиров</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex, follow" />
+<meta name="description" content="Форум Сообщества Вампиров временно закрыт: устранение критической уязвимости PHP 5.6 (CVE-2026-109618/109619). Общение на время работ — в Discord." />
+<link rel="shortcut icon" href="/favicon.ico" />
+<style type="text/css">
+/* Заглушка закрытого форума (23.10.2026).
+   Стиль намеренно автономный: страница отдаётся как ErrorDocument для любых адресов /forum/…
+   и лежит в корне статики, поэтому внешние файлы (css/, images/) здесь не подключаются, а все
+   ссылки — абсолютные: в ErrorDocument относительные пути считаются от запрошенного адреса
+   (/forum/index.php), а не от самого файла заглушки. */
+body {
+	margin: 0;
+	padding: 40px 20px 60px;
+	background: #121212;
+	color: #9a9a9a;
+	font: 1em "Trebuchet MS", Verdana, sans-serif;
+	word-spacing: 2px;
+	line-height: 1.6;
+}
+.wrap { max-width: 900px; margin: 0 auto; }
+.brand { font: 34px "Times New Roman", serif; color: #d8d8d8; margin: 0 0 4px; letter-spacing: 1px; }
+.brand a { color: #d8d8d8; text-decoration: none; border: 0; }
+.tagline { font-size: 0.85em; color: #666; margin: 0 0 34px; }
+.card {
+	background: #171717;
+	border: 1px solid #262626;
+	border-top: 3px solid #8c1c1c;
+	padding: 34px 38px 38px;
+}
+h1 { font: 40px/1.15 "Times New Roman", serif; color: #f0f0f0; margin: 0 0 18px; }
+h2 {
+	font: 24px "Times New Roman", serif;
+	color: #cfcfcf;
+	margin: 34px 0 12px;
+	padding-bottom: 6px;
+	border-bottom: 1px dotted #2a2a2a;
+}
+p { margin: 0 0 12px; }
+.lead { font-size: 1.08em; color: #b4b4b4; }
+.badge {
+	display: inline-block;
+	margin: 0 0 22px;
+	padding: 6px 12px;
+	border: 1px solid #3a1f1f;
+	background: #1d1313;
+	color: #c98a8a;
+	font: 12px/1.2 Verdana, sans-serif;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+.badge .dot {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin-right: 8px;
+	background: #c0392b;
+	border-radius: 4px;
+}
+ul { margin: 0 0 12px; padding: 0; list-style: none; }
+li { margin: 0 0 10px; padding: 0 0 0 18px; position: relative; }
+li:before { content: "—"; position: absolute; left: 0; color: #5a5a5a; }
+table { width: 100%; margin: 4px 0 8px; border-collapse: collapse; font-size: 0.92em; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #232323; vertical-align: top; }
+th {
+	color: #8d8d8d;
+	font-weight: normal;
+	font-size: 0.78em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+code { font: 0.9em Consolas, "Courier New", monospace; color: #c2c2c2; }
+a { color: #9fb37a; text-decoration: none; border-bottom: 1px dotted #33402a; }
+a:hover { color: #d9f0b8; border-bottom-color: #99CC33; }
+.cta { margin: 20px 0 12px; }
+.cta a {
+	display: inline-block;
+	padding: 13px 26px;
+	border: 1px solid #4a6b1f;
+	background: #1a2110;
+	color: #b7d98a;
+	font-size: 1.05em;
+	letter-spacing: 1px;
+}
+.cta a:hover { background: #222c14; color: #dcf3ba; border-color: #99CC33; }
+.note { color: #7a7a7a; font-size: 0.92em; }
+.footer { margin: 30px 0 0; color: #5a5a5a; font-size: 0.82em; text-align: center; line-height: 1.8; }
+.footer span { color: #414141; }
+@media (max-width: 640px) {
+	body { padding: 20px 12px 40px; }
+	.card { padding: 22px 20px 26px; }
+	h1 { font-size: 30px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+	<p class="brand"><a href="https://vampirecommunity.ru/home.html">Vampire Community</a></p>
+	<p class="tagline">Сообщество Вампиров &#183; vampirecommunity.ru</p>
+
+	<div class="card">
+
+		<p class="badge"><span class="dot"></span>HTTP 503 &#183; Service Unavailable &#183; с 23 октября 2026</p>
+
+		<h1>Форум временно закрыт</h1>
+
+		<p class="lead">Раздел «Форум» отключён полностью: в его программном обеспечении обнаружена
+		критическая уязвимость. Чтобы исключить взлом сервера и утечку переписки, мы остановили форум
+		сами — до полного обновления и устранения уязвимости. Ничего не удалено: темы, сообщения,
+		вложения и учётные записи на месте и вернутся вместе с форумом.</p>
+
+		<h2>Почему форум закрыт</h2>
+		<ul>
+			<li>Форум работает на <b>Simple Machines Forum 2.0.15</b>, а он — на <b>PHP 5.6.40</b> в связке
+			с Apache и mod_php. Ветка PHP 5.6 не поддерживается с конца 2018 года: обновлений
+			безопасности для неё не выпускают.</li>
+			<li>21 октября 2026 года в PHP закрыты две критические уязвимости удалённого выполнения кода —
+			<b>CVE-2026-109618</b> («RCE via OOM corruption») и <b>CVE-2026-109619</b> («RCE via stale
+			global state»). Исправления вышли в 8.5.12, 8.4.27, 8.3.36 и 8.2.35; для ветки 5.6 их не будет.</li>
+			<li>С mod_php эксплойт срабатывает <i>до</i> кода приложения: уязвим сам интерпретатор, поэтому
+			заплатка в форуме или настройка прав здесь не помогают — помогает только исправленный PHP.</li>
+			<li>Просто «переключить PHP» нельзя: SMF 2.0.15 несовместим с PHP 8 — синтаксис, удалённый
+			в PHP 8.0, встречается в его коде 72 раза в 9 файлах ядра. Значит, нужен одновременный переход
+			на <b>SMF 2.1.8 + PHP 8.4</b> с миграцией базы данных.</li>
+			<li>23 октября 2026 года вышло дополнительное предупреждение по <code>session.upload_progress</code>
+			(будущий CVE-2026-115560) — ещё один повод не оставлять старый интерпретатор включённым.</li>
+		</ul>
+
+		<h2>Что уже сделано</h2>
+		<ul>
+			<li>Исполнение PHP отключено на уровне веб-сервера: любой адрес <code>/forum/…</code> получает
+			ответ <code>503</code> и эту страницу — интерпретатор не запускается ни для одного запроса.</li>
+			<li>Прямые вызовы любых <code>*.php</code> запрещены в конфигурации сервера (<code>403</code>) —
+			включая старые адреса, служебные файлы и резервные копии исходников форума.</li>
+			<li>База данных и файлы форума сохранены в целостности, доступ к ним снаружи закрыт.</li>
+			<li>Остальной сайт — статьи, исследования, галерея, поиск — работает как обычно: он статический,
+			PHP там не используется.</li>
+		</ul>
+
+		<h2>Техническая справка</h2>
+		<table>
+			<tr><th>Компонент</th><th>Версия и состояние</th></tr>
+			<tr><td>Форум</td><td>Simple Machines Forum 2.0.15 — закрыт, данные сохранены</td></tr>
+			<tr><td>Интерпретатор</td><td>PHP 5.6.40 (mod_php, Apache 2.4) — вызовы запрещены полностью</td></tr>
+			<tr><td>Уязвимости</td><td>CVE-2026-109618, CVE-2026-109619; исправлены в PHP 8.2.35+ / 8.3.36+ / 8.4.27+ / 8.5.12+</td></tr>
+			<tr><td>Целевая конфигурация</td><td>SMF 2.1.8 + PHP 8.4 — затем миграция базы, проверка модов и тем</td></tr>
+			<tr><td>Ответ сервера</td><td><code>503 Service Unavailable</code> для всех адресов <code>/forum/…</code></td></tr>
+			<tr><td>Статика сайта</td><td>работает, PHP не используется</td></tr>
+		</table>
+
+		<h2>Когда форум откроется</h2>
+		<p>После полного обновления: SMF 2.1.8 на PHP 8.4, миграция базы данных, проверка установленных
+		модов и тем, затем повторный аудит безопасности. Точную дату не объявляем: лучше закрытый форум,
+		чем потерянные аккаунты и переписка. Адрес останется прежним —
+		<code>https://vampirecommunity.ru/forum/</code>.</p>
+
+		<h2>Где мы общаемся пока</h2>
+		<p>Основная площадка на время ремонта — наш Discord: там те же разделы, что были на форуме,
+		и те же люди.</p>
+		<p class="cta"><a href="https://discord.gg/WC6RMgA">Войти в Discord &#183; discord.gg/WC6RMgA</a></p>
+		<p class="note">Если приглашение не открывается — актуальная ссылка всегда лежит на странице
+		<a href="https://vampirecommunity.ru/primary/community.html">«Сообщество»</a>.
+		Телеграм-канал сообщества: <a href="https://telegram.me/vampirecommunity">telegram.me/vampirecommunity</a>.</p>
+
+	</div>
+
+	<p class="footer">Сообщество Вампиров &#183; <a href="https://vampirecommunity.ru/">vampirecommunity.ru</a><br />
+	<span>Страница-заглушка закрытого форума, установлена 23.10.2026. Обновляется по мере работ.</span></p>
+
+</div>
+
+</body>
+</html>
