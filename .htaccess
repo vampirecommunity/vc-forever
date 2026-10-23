@@ -1,6 +1,26 @@
-# Статика сайта: .html отдаются через PHP.
+# Статика сайта отдаётся напрямую, без интерпретатора PHP (изменено 23.10.2026).
+#
+# Раньше здесь было:
+#   RemoveHandler .html
+#   AddType application/x-httpd-php .html
+# т.е. КАЖДАЯ страница (794 файла .html) проходила через PHP. PHP-кода в страницах нет
+# (проверено: `grep -rl '<?php' --include='*.html' http/` → 0 файлов), поэтому выдача
+# страниц не меняется, а интерпретатор остаётся только там, где он действительно нужен, —
+# в каталоге /forum/ (там же лежит и весь остальной PHP).
+#
+# Зачем: PHP 5.6 в контейнере httpd не поддерживается с 2018 года и не получает
+# исправлений, а 21.10.2026 вышли критические CVE-2026-109618 / CVE-2026-109619
+# (RCE до выполнения кода приложения). Чем меньше запросов доходит до интерпретатора,
+# тем меньше поверхность атаки. Полное устранение — переход форума на PHP 8.4 + SMF 2.1.8,
+# план — в docs/forum-php8-migration.md.
 RemoveHandler .html
-AddType application/x-httpd-php .html
+
+# Кодировку раньше проставлял PHP (Content-Type: text/html; charset=UTF-8).
+# Теперь страницы отдаёт Apache, поэтому кодировку задаём здесь — иначе три страницы
+# без <meta charset> (other/photogallery.html, other/forum.html, other/enter_chat.html)
+# показывались бы кракозябрами. Действует только на text/html и text/plain,
+# PHP-страницы форума по-прежнему отдают свой Content-Type.
+AddDefaultCharset UTF-8
 
 # --- 301-редиректы на актуальные адреса (добавлено 13.10.2026, дополнено 14.10.2026 и 15.10.2026) ---
 # Старые адреса страниц перенаправляются на текущие файлы: перенос статей в каталог
@@ -967,4 +987,42 @@ Redirect permanent /translate_yliana.html /articles/translators/yliana.html
 # в рамках этой же правки).
 Redirect permanent /vc_search.php /search/index.html
 Redirect permanent /search.html /search/index.html
+
+# =============================================================================
+# Безопасность (добавлено 23.10.2026)
+# Править осторожно: синтаксическая ошибка в этом файле ломает весь сайт (500).
+# =============================================================================
+
+# 1) Служебные файлы больше не отдаются наружу.
+#    В репозитории лежат бэкапы исходников SMF — 96 файлов `*~` и `*.bak`
+#    (`forum/index.php~`, `forum/Sources/*.php~`, `forum/SSI.php.bak`,
+#    `forum/ssi_examples*.bak`): Apache отдавал их как текст, то есть исходники
+#    форума можно было просто скачать (проверено: `/forum/Sources/Subs.php~` → 200,
+#    166 КБ текста). Плюс `Settings_bak.php` — копия конфига с доступами к БД.
+#    Архивы (.zip/.gz) НЕ закрываем: `/files/alcal254.zip` — легальная раздача.
+<FilesMatch "(~|\.bak|\.orig|\.old|\.save|\.swp|\.tmp|\.sql|\.log|\.ini|\.md|\.sh|\.yml|\.yaml|\.dist|\.psd|Settings_bak\.php|Settings\.template\.php)">
+    Require all denied
+</FilesMatch>
+
+# 2) Статику принимаем только методами GET/HEAD.
+#    Страницам и картинкам незачем разбирать тело запроса: разбор multipart —
+#    один из путей к OOM, через который работает CVE-2026-109618.
+#    Форм с method="post" на статике нет (проверено: grep по *.html → 0 файлов).
+<FilesMatch "\.(html|htm|css|js|png|jpg|jpeg|gif|bmp|ico|svg|xml|txt|zip|pdf|doc|wav)$">
+    <Limit POST PUT DELETE PATCH>
+        Require all denied
+    </Limit>
+</FilesMatch>
+
+# 3) Настройки PHP, которые можно менять на уровне каталога (работает только с mod_php,
+#    т.е. ровно с текущим образом darkfess/vc-httpd). Системные настройки — в docker/php/php.ini,
+#    он монтируется в контейнер через docker-compose.yaml.
+#    `expose_php` здесь НЕ выставляется: это системная настройка, mod_php её молча игнорирует
+#    (проверено) — она выключена в php.ini.
+php_flag display_errors off
+php_flag display_startup_errors off
+php_flag log_errors on
+php_flag session.upload_progress.enabled off
+php_flag session.use_strict_mode on
+php_value session.cookie_httponly 1
 
